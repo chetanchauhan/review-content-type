@@ -1,0 +1,12 @@
+title: Review Content Type
+source:
+	- .
+
+destination: docs/
+
+exclude:
+	- node_modules/
+	- docs/
+	- build/
+
+download: true
