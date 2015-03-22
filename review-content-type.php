@@ -135,6 +135,7 @@ final class Review_Content_Type {
 	private function includes() {
 		require_once( RCT_INCLUDES . 'class-rct-activate.php' );
 		require_once( RCT_INCLUDES . 'class-rct-deactivate.php' );
+		require_once( RCT_INCLUDES . 'class-rct-post-types.php' );
 		require_once( RCT_INCLUDES . 'class-rct-scripts.php' );
 		require_once( RCT_INCLUDES . 'rct-functions.php' );
 	}
