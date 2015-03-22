@@ -23,6 +23,9 @@ class RCT_Post_Types {
 	 * @since   1.0.0
 	 */
 	public static function register_taxonomies() {
+		if ( taxonomy_exists( 'review_category' ) ) {
+			return;
+		}
 
 		// Categories
 		$category_args = array(
@@ -117,6 +120,10 @@ class RCT_Post_Types {
 	 * @since  1.0.0
 	 */
 	public static function register_post_types() {
+		if ( post_type_exists( 'review' ) ) {
+			return;
+		}
+
 		$args = array(
 			'label'               => 'Reviews',
 			'labels'              => array(
