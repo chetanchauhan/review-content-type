@@ -27,6 +27,10 @@ class RCT_Post_Types {
 			return;
 		}
 
+		$settings      = get_option( 'rct_permalink_settings' );
+		$category_base = empty( $settings['category_base'] ) ? _x( 'reviews/category', 'slug', 'review-content-type' ) : $settings['category_base'];
+		$tag_base      = empty( $settings['tag_base'] ) ? _x( 'reviews/tag', 'slug', 'review-content-type' ) : $settings['tag_base'];
+
 		// Categories
 		$category_args = array(
 			'public'            => true,
@@ -37,7 +41,7 @@ class RCT_Post_Types {
 			'hierarchical'      => true,
 			'query_var'         => 'review_category',
 			'rewrite'           => array(
-				'slug'         => 'reviews/category',
+				'slug'         => $category_base,
 				'with_front'   => false,
 				'hierarchical' => true,
 			),
@@ -80,7 +84,7 @@ class RCT_Post_Types {
 			'hierarchical'      => false,
 			'query_var'         => 'review_tag',
 			'rewrite'           => array(
-				'slug'         => 'reviews/tag',
+				'slug'         => $tag_base,
 				'with_front'   => false,
 				'hierarchical' => true,
 			),
@@ -124,6 +128,10 @@ class RCT_Post_Types {
 			return;
 		}
 
+		$settings            = get_option( 'rct_permalink_settings' );
+		$default_review_base = _x( 'reviews', 'slug', 'review-content-type' );
+		$review_base         = empty( $settings['review_base'] ) ? $default_review_base : $settings['review_base'];
+
 		$args = array(
 			'label'               => 'Reviews',
 			'labels'              => array(
@@ -164,9 +172,9 @@ class RCT_Post_Types {
 				'comments',
 				'revisions',
 			),
-			'has_archive'         => true,
+			'has_archive'         => $default_review_base,
 			'rewrite'             => array(
-				'slug'       => 'reviews',
+				'slug'       => $review_base,
 				'with_front' => false,
 				'feeds'      => true,
 				'pages'      => true,

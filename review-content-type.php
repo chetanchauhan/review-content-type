@@ -63,6 +63,7 @@ final class Review_Content_Type {
 			register_activation_hook( __FILE__, array( 'RCT_Activate', 'activate' ) );
 			register_deactivation_hook( __FILE__, array( 'RCT_Deactivate', 'deactivate' ) );
 			add_action( 'plugins_loaded', array( self::$instance, 'load_plugin_textdomain' ) );
+			add_filter( 'post_type_link', array( self::$instance, 'review_post_type_link' ), 10, 2 );
 
 			do_action( 'rct_loaded', self::$instance );
 		}
@@ -138,6 +139,10 @@ final class Review_Content_Type {
 		require_once( RCT_INCLUDES . 'class-rct-post-types.php' );
 		require_once( RCT_INCLUDES . 'class-rct-scripts.php' );
 		require_once( RCT_INCLUDES . 'rct-functions.php' );
+
+		if ( is_admin() ) {
+			require_once( RCT_ADMIN_INCLUDES . 'class-rct-permalink-settings.php' );
+		}
 	}
 
 	/**
@@ -149,6 +154,65 @@ final class Review_Content_Type {
 		$locale = apply_filters( 'plugin_locale', get_locale(), 'review-content-type' );
 		load_textdomain( 'review-content-type', WP_LANG_DIR . '/review-content-type/review-content-type-' . $locale . '.mo' );
 		load_plugin_textdomain( 'review-content-type', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	}
+
+	/**
+	 * Filters the permalink for review post type.
+	 *
+	 * @since   1.0.0
+	 *
+	 * @param string  $permalink The post's permalink.
+	 * @param WP_Post $post      The post in question.
+	 *
+	 * @return string
+	 */
+	public function review_post_type_link( $permalink, $post ) {
+		if ( 'review' !== $post->post_type || false === strpos( $permalink, '%' ) ) {
+			return $permalink;
+		}
+
+		$review_category = '';
+		if ( false !== strpos( $permalink, '%review_category%' ) ) {
+			$terms = get_the_terms( $post->ID, 'review_category' );
+			if ( $terms && ! is_wp_error( $terms ) ) {
+				$term_object     = get_term( array_shift( $terms ), 'review_category' );
+				$review_category = $term_object->slug;
+				while ( $term_object->parent != '0' ) {
+					$term_object     = get_term( $term_object->parent, 'review_category' );
+					$review_category = $term_object->slug . '/' . $review_category;
+				}
+			}
+			if ( empty( $review_category ) ) {
+				$review_category = _x( 'uncategorized', 'slug', 'review-content-type' );
+			}
+		}
+
+		$find      = array(
+			'%year%',
+			'%monthnum%',
+			'%day%',
+			'%hour%',
+			'%minute%',
+			'%second%',
+			'%post_id%',
+			'%category%',
+			'%review_category%',
+		);
+		$post_date = strtotime( $post->post_date );
+		$replace   = array(
+			date_i18n( 'Y', $post_date ),
+			date_i18n( 'm', $post_date ),
+			date_i18n( 'd', $post_date ),
+			date_i18n( 'H', $post_date ),
+			date_i18n( 'i', $post_date ),
+			date_i18n( 's', $post_date ),
+			$post->ID,
+			$review_category,
+			$review_category,
+		);
+		$permalink = str_replace( $find, $replace, $permalink );
+
+		return apply_filters( 'rct_review_post_type_link', $permalink, $post );
 	}
 
 }

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Review Content Type 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/chetanchauhan/review-content-type/issues\n"
-"POT-Creation-Date: 2015-03-22 14:05:35+00:00\n"
+"POT-Creation-Date: 2015-03-25 19:41:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,7 +25,219 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
-#: review-content-type.php:89 review-content-type.php:98
+#: includes/admin/class-rct-permalink-settings.php:26
+msgid "Review Permalink Settings"
+msgstr ""
+
+#: includes/admin/class-rct-permalink-settings.php:48
+msgid "Review base"
+msgstr ""
+
+#: includes/admin/class-rct-permalink-settings.php:51
+msgid "Default"
+msgstr ""
+
+#: includes/admin/class-rct-permalink-settings.php:52
+msgid "Review with category"
+msgstr ""
+
+#: includes/admin/class-rct-permalink-settings.php:53
+msgid "Custom"
+msgstr ""
+
+#: includes/admin/class-rct-permalink-settings.php:59
+msgid "Review category base"
+msgstr ""
+
+#: includes/admin/class-rct-permalink-settings.php:65
+msgid "Review tag base"
+msgstr ""
+
+#: includes/class-rct-post-types.php:55
+msgid "Review Categories"
+msgstr ""
+
+#: includes/class-rct-post-types.php:56
+msgid "Review Category"
+msgstr ""
+
+#: includes/class-rct-post-types.php:57
+msgid "Categories"
+msgstr ""
+
+#: includes/class-rct-post-types.php:58
+msgid "All Review Categories"
+msgstr ""
+
+#: includes/class-rct-post-types.php:59
+msgid "Edit Review Category"
+msgstr ""
+
+#: includes/class-rct-post-types.php:60
+msgid "View Review Category"
+msgstr ""
+
+#: includes/class-rct-post-types.php:61
+msgid "Update Review Category"
+msgstr ""
+
+#: includes/class-rct-post-types.php:62
+msgid "Add New Review Category"
+msgstr ""
+
+#: includes/class-rct-post-types.php:63
+msgid "New Review Category Name"
+msgstr ""
+
+#: includes/class-rct-post-types.php:64
+msgid "Parent Review Category"
+msgstr ""
+
+#: includes/class-rct-post-types.php:65
+msgid "Parent Review Category:"
+msgstr ""
+
+#: includes/class-rct-post-types.php:66
+msgid "Search Review Categories"
+msgstr ""
+
+#: includes/class-rct-post-types.php:67
+msgid "Popular Review Categories"
+msgstr ""
+
+#: includes/class-rct-post-types.php:68
+msgid "Separate review categories with commas"
+msgstr ""
+
+#: includes/class-rct-post-types.php:69
+msgid "Add or remove review categories"
+msgstr ""
+
+#: includes/class-rct-post-types.php:70
+msgid "Choose from the most used review categories"
+msgstr ""
+
+#: includes/class-rct-post-types.php:71
+msgid "No review categories found."
+msgstr ""
+
+#: includes/class-rct-post-types.php:98
+msgid "Review Tags"
+msgstr ""
+
+#: includes/class-rct-post-types.php:99
+msgid "Review Tag"
+msgstr ""
+
+#: includes/class-rct-post-types.php:100
+msgid "Tags"
+msgstr ""
+
+#: includes/class-rct-post-types.php:101
+msgid "All Review Tags"
+msgstr ""
+
+#: includes/class-rct-post-types.php:102
+msgid "Edit Review Tag"
+msgstr ""
+
+#: includes/class-rct-post-types.php:103
+msgid "View Review Tag"
+msgstr ""
+
+#: includes/class-rct-post-types.php:104
+msgid "Update Review Tag"
+msgstr ""
+
+#: includes/class-rct-post-types.php:105
+msgid "Add New Review Tag"
+msgstr ""
+
+#: includes/class-rct-post-types.php:106
+msgid "New Review Tag Name"
+msgstr ""
+
+#: includes/class-rct-post-types.php:107
+msgid "Parent Review Tag"
+msgstr ""
+
+#: includes/class-rct-post-types.php:108
+msgid "Parent Review Tag:"
+msgstr ""
+
+#: includes/class-rct-post-types.php:109
+msgid "Search Review Tags"
+msgstr ""
+
+#: includes/class-rct-post-types.php:110
+msgid "Popular Review Tags"
+msgstr ""
+
+#: includes/class-rct-post-types.php:111
+msgid "Separate review tags with commas"
+msgstr ""
+
+#: includes/class-rct-post-types.php:112
+msgid "Add or remove review tags"
+msgstr ""
+
+#: includes/class-rct-post-types.php:113
+msgid "Choose from the most used review tags"
+msgstr ""
+
+#: includes/class-rct-post-types.php:114
+msgid "No review tags found."
+msgstr ""
+
+#: includes/class-rct-post-types.php:140 includes/class-rct-post-types.php:142
+msgid "Reviews"
+msgstr ""
+
+#: includes/class-rct-post-types.php:141
+msgid "Review"
+msgstr ""
+
+#: includes/class-rct-post-types.php:143
+msgid "Add New"
+msgstr ""
+
+#: includes/class-rct-post-types.php:144
+msgid "Add New Review"
+msgstr ""
+
+#: includes/class-rct-post-types.php:145
+msgid "Edit Review"
+msgstr ""
+
+#: includes/class-rct-post-types.php:146
+msgid "New Review"
+msgstr ""
+
+#: includes/class-rct-post-types.php:147
+msgid "View Review"
+msgstr ""
+
+#: includes/class-rct-post-types.php:148
+msgid "Search Reviews"
+msgstr ""
+
+#: includes/class-rct-post-types.php:149
+msgid "No reviews found"
+msgstr ""
+
+#: includes/class-rct-post-types.php:150
+msgid "No reviews found in trash"
+msgstr ""
+
+#: includes/class-rct-post-types.php:151
+msgid "Parent Review"
+msgstr ""
+
+#: includes/class-rct-post-types.php:153
+msgid "Review content type."
+msgstr ""
+
+#: review-content-type.php:90 review-content-type.php:99
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
@@ -49,4 +261,37 @@ msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "https://github.com/chetanchauhan/"
+msgstr ""
+
+#: includes/admin/class-rct-permalink-settings.php:36
+#: includes/class-rct-post-types.php:132
+msgctxt "slug"
+msgid "reviews"
+msgstr ""
+
+#: includes/admin/class-rct-permalink-settings.php:61
+#: includes/class-rct-post-types.php:31
+msgctxt "slug"
+msgid "reviews/category"
+msgstr ""
+
+#: includes/admin/class-rct-permalink-settings.php:67
+#: includes/class-rct-post-types.php:32
+msgctxt "slug"
+msgid "reviews/tag"
+msgstr ""
+
+#: review-content-type.php:186
+msgctxt "slug"
+msgid "uncategorized"
+msgstr ""
+
+#: includes/class-rct-post-types.php:138
+msgctxt "Reviews Post Type General Name"
+msgid "Reviews"
+msgstr ""
+
+#: includes/class-rct-post-types.php:139
+msgctxt "Reviews Post Type Singular Name"
+msgid "Review"
 msgstr ""
