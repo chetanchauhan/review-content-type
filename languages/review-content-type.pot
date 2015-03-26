@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Review Content Type 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/chetanchauhan/review-content-type/issues\n"
-"POT-Creation-Date: 2015-03-25 19:41:11+00:00\n"
+"POT-Creation-Date: 2015-03-26 15:47:58+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -281,7 +281,7 @@ msgctxt "slug"
 msgid "reviews/tag"
 msgstr ""
 
-#: review-content-type.php:186
+#: review-content-type.php:187
 msgctxt "slug"
 msgid "uncategorized"
 msgstr ""

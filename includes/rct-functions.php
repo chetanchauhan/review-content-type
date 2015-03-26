@@ -1,5 +1,5 @@
 <?php
-// If this file is calle directly, abort.
+// If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
