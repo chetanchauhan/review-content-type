@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Review Content Type 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/chetanchauhan/review-content-type/issues\n"
-"POT-Creation-Date: 2015-03-26 15:47:58+00:00\n"
+"POT-Creation-Date: 2015-04-08 14:06:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,6 +24,34 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
+
+#: includes/admin/class-rct-admin-meta-boxes.php:39
+msgid "Review Data"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:111
+msgid "Remove"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:111
+msgid "-"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:116
+msgid "Add"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:116
+msgid "+"
+msgstr ""
+
+#: includes/admin/class-rct-admin.php:36
+msgid "Review Content Type Settings"
+msgstr ""
+
+#: includes/admin/class-rct-admin.php:37 includes/admin/class-rct-admin.php:56
+msgid "Settings"
+msgstr ""
 
 #: includes/admin/class-rct-permalink-settings.php:26
 msgid "Review Permalink Settings"
@@ -237,7 +265,15 @@ msgstr ""
 msgid "Review content type."
 msgstr ""
 
-#: review-content-type.php:90 review-content-type.php:99
+#: includes/class-rct-settings.php:146
+msgid "General"
+msgstr ""
+
+#: includes/class-rct-settings.php:332
+msgid "Settings updated."
+msgstr ""
+
+#: review-content-type.php:98 review-content-type.php:107
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
@@ -281,7 +317,7 @@ msgctxt "slug"
 msgid "reviews/tag"
 msgstr ""
 
-#: review-content-type.php:187
+#: review-content-type.php:197
 msgctxt "slug"
 msgid "uncategorized"
 msgstr ""

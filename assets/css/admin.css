@@ -6,3 +6,50 @@ ul.rct-inline-list li {
 	display: inline-block;
 	margin-right: 1em;
 }
+
+.rct-fields-wrapper .required {
+	color: #c0392b;
+}
+
+.rct-field:before,
+.rct-field:after {
+	display: table;
+	content: " ";
+}
+
+.rct-field:after {
+	clear: both;
+}
+
+.rct-field {
+	margin: 0 0 1em;
+}
+
+.rct-field .rct-field-label {
+	float: left;
+	width: 20%;
+}
+
+.rct-field .rct-field-input {
+	float: right;
+	width: 75%;
+}
+
+.rct-field-input input,
+.rct-repeatable {
+	width: 100%;
+}
+
+.rct-editor-field input {
+	width: auto;
+}
+
+.rct-select-field .description {
+	display: inline;
+}
+
+.rct-repeatable .rct-add-input,
+.rct-repeatable .rct-remove-input {
+	margin-left: 5px;
+	vertical-align: middle;
+}

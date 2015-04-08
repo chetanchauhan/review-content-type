@@ -39,6 +39,13 @@ if ( ! defined( 'WPINC' ) ) {
 final class Review_Content_Type {
 
 	/**
+	 * @since  1.0.0
+	 * @access public
+	 * @var    RCT_Settings
+	 */
+	public $settings = null;
+
+	/**
 	 * Holds the instance of this class.
 	 *
 	 * @since  1.0.0
@@ -63,6 +70,7 @@ final class Review_Content_Type {
 			register_activation_hook( __FILE__, array( 'RCT_Activate', 'activate' ) );
 			register_deactivation_hook( __FILE__, array( 'RCT_Deactivate', 'deactivate' ) );
 			add_action( 'plugins_loaded', array( self::$instance, 'load_plugin_textdomain' ) );
+			add_action( 'init', array( self::$instance, 'init' ), 0 );
 			add_filter( 'post_type_link', array( self::$instance, 'review_post_type_link' ), 10, 2 );
 
 			do_action( 'rct_loaded', self::$instance );
@@ -106,7 +114,6 @@ final class Review_Content_Type {
 	 * @access private
 	 */
 	private function define_constants() {
-
 		// Set the plugin version.
 		define( 'RCT_VERSION', '1.0.0' );
 
@@ -118,13 +125,6 @@ final class Review_Content_Type {
 
 		// Set the plugin directory URL.
 		define( 'RCT_URL', plugin_dir_url( __FILE__ ) );
-
-		// Set the plugin includes directory path.
-		define( 'RCT_INCLUDES', RCT_DIR . trailingslashit( 'includes' ) );
-
-		// Set the plugin admin directory path.
-		define( 'RCT_ADMIN_INCLUDES', RCT_INCLUDES . trailingslashit( 'admin' ) );
-
 	}
 
 	/**
@@ -134,16 +134,26 @@ final class Review_Content_Type {
 	 * @access private
 	 */
 	private function includes() {
-		require_once( RCT_INCLUDES . 'class-rct-activate.php' );
-		require_once( RCT_INCLUDES . 'class-rct-deactivate.php' );
-		require_once( RCT_INCLUDES . 'class-rct-post-types.php' );
-		require_once( RCT_INCLUDES . 'class-rct-scripts.php' );
-		require_once( RCT_INCLUDES . 'rct-template-functions.php' );
-		require_once( RCT_INCLUDES . 'rct-functions.php' );
+		require_once( RCT_DIR . 'includes/class-rct-settings.php' );
+		require_once( RCT_DIR . 'includes/class-rct-activate.php' );
+		require_once( RCT_DIR . 'includes/class-rct-deactivate.php' );
+		require_once( RCT_DIR . 'includes/class-rct-post-types.php' );
+		require_once( RCT_DIR . 'includes/class-rct-scripts.php' );
+		require_once( RCT_DIR . 'includes/rct-template-functions.php' );
+		require_once( RCT_DIR . 'includes/rct-functions.php' );
 
 		if ( is_admin() ) {
-			require_once( RCT_ADMIN_INCLUDES . 'class-rct-permalink-settings.php' );
+			require_once( RCT_DIR . 'includes/admin/class-rct-admin.php' );
 		}
+	}
+
+	/**
+	 * @since 1.0.0
+	 */
+	public function init() {
+		self::$instance->settings = new RCT_Settings();
+
+		do_action( 'rct_init', self::$instance );
 	}
 
 	/**
