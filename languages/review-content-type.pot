@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Review Content Type 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/chetanchauhan/review-content-type/issues\n"
-"POT-Creation-Date: 2015-04-08 14:06:11+00:00\n"
+"POT-Creation-Date: 2015-04-09 15:39:14+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,23 +25,82 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
-#: includes/admin/class-rct-admin-meta-boxes.php:39
+#: includes/admin/class-rct-admin-meta-boxes.php:30
+msgid "Name"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:31
+msgid "Name of the item that is being reviewed."
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:37
+msgid "Pros Heading"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:38
+msgid "Leave blank to use default pros heading text."
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:44
+#: includes/class-rct-settings.php:138
+msgid "Pros"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:45
+msgid "Mention all the good things about the item being reviewed."
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:53
+msgid "Cons Heading"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:54
+msgid "Leave blank to use default cons heading text."
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:60
+#: includes/class-rct-settings.php:144
+msgid "Cons"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:61
+msgid "Mention all the bad things about the item being reviewed."
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:69
+msgid "Summary Heading"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:70
+msgid "Leave blank to use default summary heading text."
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:76
+#: includes/class-rct-settings.php:150
+msgid "Summary"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:77
+msgid "Brief description of the item being reviewed."
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:97
 msgid "Review Data"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:111
+#: includes/admin/class-rct-admin-meta-boxes.php:169
 msgid "Remove"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:111
+#: includes/admin/class-rct-admin-meta-boxes.php:169
 msgid "-"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:116
+#: includes/admin/class-rct-admin-meta-boxes.php:174
 msgid "Add"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:116
+#: includes/admin/class-rct-admin-meta-boxes.php:174
 msgid "+"
 msgstr ""
 
@@ -265,15 +324,43 @@ msgstr ""
 msgid "Review content type."
 msgstr ""
 
-#: includes/class-rct-settings.php:146
+#: includes/class-rct-settings.php:136
+msgid "Pros Heading Text"
+msgstr ""
+
+#: includes/class-rct-settings.php:137
+msgid "The heading text used by default for displaying review pros."
+msgstr ""
+
+#: includes/class-rct-settings.php:142
+msgid "Cons Heading Text"
+msgstr ""
+
+#: includes/class-rct-settings.php:143
+msgid "The heading text used by default for displaying review cons."
+msgstr ""
+
+#: includes/class-rct-settings.php:148
+msgid "Summary Heading Text"
+msgstr ""
+
+#: includes/class-rct-settings.php:149
+msgid "The heading text used by default for displaying review summary."
+msgstr ""
+
+#: includes/class-rct-settings.php:168
 msgid "General"
 msgstr ""
 
-#: includes/class-rct-settings.php:332
+#: includes/class-rct-settings.php:169
+msgid "Display"
+msgstr ""
+
+#: includes/class-rct-settings.php:355
 msgid "Settings updated."
 msgstr ""
 
-#: review-content-type.php:98 review-content-type.php:107
+#: review-content-type.php:99 review-content-type.php:108
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
@@ -317,7 +404,7 @@ msgctxt "slug"
 msgid "reviews/tag"
 msgstr ""
 
-#: review-content-type.php:197
+#: review-content-type.php:209
 msgctxt "slug"
 msgid "uncategorized"
 msgstr ""
