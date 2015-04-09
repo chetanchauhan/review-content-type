@@ -26,21 +26,21 @@ class RCT_Admin_Meta_Boxes {
 	 */
 	protected function get_review_data_fields() {
 		$fields = array(
-			'name'         => array(
+			'name'            => array(
 				'label'       => __( 'Name', 'review-content-type' ),
 				'description' => __( 'Name of the item that is being reviewed.', 'review-content-type' ),
 				'type'        => 'text',
 				'required'    => true,
 				'priority'    => 10,
 			),
-			'pros_heading' => array(
+			'pros_heading'    => array(
 				'label'       => __( 'Pros Heading', 'review-content-type' ),
 				'description' => __( 'Leave blank to use default pros heading text.', 'review-content-type' ),
 				'type'        => 'text',
 				'placeholder' => review_content_type()->settings->get( 'pros_heading', 'display' ),
 				'priority'    => 20,
 			),
-			'pros'         => array(
+			'pros'            => array(
 				'label'       => __( 'Pros', 'review-content-type' ),
 				'description' => __( 'Mention all the good things about the item being reviewed.', 'review-content-type' ),
 				'type'        => 'text',
@@ -49,14 +49,14 @@ class RCT_Admin_Meta_Boxes {
 				'default'     => '',
 				'priority'    => 30,
 			),
-			'cons_heading' => array(
+			'cons_heading'    => array(
 				'label'       => __( 'Cons Heading', 'review-content-type' ),
 				'description' => __( 'Leave blank to use default cons heading text.', 'review-content-type' ),
 				'type'        => 'text',
 				'placeholder' => review_content_type()->settings->get( 'cons_heading', 'display' ),
 				'priority'    => 40,
 			),
-			'cons'         => array(
+			'cons'            => array(
 				'label'       => __( 'Cons', 'review-content-type' ),
 				'description' => __( 'Mention all the bad things about the item being reviewed.', 'review-content-type' ),
 				'type'        => 'text',
@@ -64,6 +64,24 @@ class RCT_Admin_Meta_Boxes {
 				'label_for'   => 'rct_review_data-cons-0',
 				'default'     => '',
 				'priority'    => 50,
+			),
+			'summary_heading' => array(
+				'label'       => __( 'Summary Heading', 'review-content-type' ),
+				'description' => __( 'Leave blank to use default summary heading text.', 'review-content-type' ),
+				'type'        => 'text',
+				'placeholder' => review_content_type()->settings->get( 'summary_heading', 'display' ),
+				'priority'    => 60,
+			),
+			'summary'         => array(
+				'label'       => __( 'Summary', 'review-content-type' ),
+				'description' => __( 'Brief description of the item being reviewed.', 'review-content-type' ),
+				'type'        => 'editor',
+				'options'     => array(
+					'textarea_rows' => 6,
+					'tinymce'       => false,
+					'media_buttons' => false,
+				),
+				'priority'    => 70,
 			),
 		);
 

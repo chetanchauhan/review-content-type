@@ -132,16 +132,22 @@ class RCT_Settings {
 		$settings['display'] = array(
 			'tab'    => 'display',
 			'fields' => array(
-				'pros_heading' => array(
+				'pros_heading'    => array(
 					'label'       => __( 'Pros Heading Text', 'review-content-type' ),
 					'description' => __( 'The heading text used by default for displaying review pros.', 'review-content-type' ),
 					'default'     => __( 'Pros', 'review-content-type' ),
 					'type'        => 'text',
 				),
-				'cons_heading' => array(
+				'cons_heading'    => array(
 					'label'       => __( 'Cons Heading Text', 'review-content-type' ),
 					'description' => __( 'The heading text used by default for displaying review cons.', 'review-content-type' ),
 					'default'     => __( 'Cons', 'review-content-type' ),
+					'type'        => 'text',
+				),
+				'summary_heading' => array(
+					'label'       => __( 'Summary Heading Text', 'review-content-type' ),
+					'description' => __( 'The heading text used by default for displaying review summary.', 'review-content-type' ),
+					'default'     => __( 'Summary', 'review-content-type' ),
 					'type'        => 'text',
 				),
 			)

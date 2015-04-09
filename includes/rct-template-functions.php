@@ -206,6 +206,24 @@ function rct_get_review_cons( $review_id = 0 ) {
 }
 
 /**
+ * Retrieves the review summary.
+ *
+ * @since   1.0.0
+ *
+ * @param int $review_id Review ID
+ *
+ * @return string
+ */
+function rct_get_review_summary( $review_id = 0 ) {
+	if ( ! $review_id ) {
+		$review_id = get_the_ID();
+	}
+	$summary = get_post_meta( $review_id, '_rct_summary', true );
+
+	return apply_filters( 'rct_get_review_summary', $summary, $review_id );
+}
+
+/**
  * Return or display the review pros heading.
  *
  * @since   1.0.0
@@ -254,6 +272,30 @@ function rct_review_cons_heading( $review_id = 0, $echo = true ) {
 }
 
 /**
+ * Return or display the review summary heading.
+ *
+ * @since   1.0.0
+ *
+ * @param   int  $review_id Review ID
+ * @param   bool $echo      Whether to display or return.
+ *
+ * @return string
+ */
+function rct_review_summary_heading( $review_id = 0, $echo = true ) {
+	if ( ! $review_id ) {
+		$review_id = get_the_ID();
+	}
+	$heading = get_post_meta( $review_id, '_rct_summary_heading', true );
+	$heading = empty( $heading ) ? review_content_type()->settings->get( 'summary_heading', 'display' ) : $heading;
+
+	if ( $echo ) {
+		echo $heading;
+	} else {
+		return $heading;
+	}
+}
+
+/**
  * Display the reviewed item name on single review page.
  */
 function rct_display_review_name() {
@@ -270,3 +312,12 @@ function rct_display_review_pros_cons() {
 }
 
 add_action( 'rct_before_review_content', 'rct_display_review_pros_cons', 15 );
+
+/**
+ * Display the review summary on single review page.
+ */
+function rct_display_review_summary() {
+	rct_get_template_part( 'content-single-review-summary' );
+}
+
+add_action( 'rct_before_review_content', 'rct_display_review_summary', 30 );
