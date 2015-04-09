@@ -66,6 +66,7 @@ final class Review_Content_Type {
 			self::$instance = new self();
 			self::$instance->define_constants();
 			self::$instance->includes();
+			self::$instance->add_image_sizes();
 
 			register_activation_hook( __FILE__, array( 'RCT_Activate', 'activate' ) );
 			register_deactivation_hook( __FILE__, array( 'RCT_Deactivate', 'deactivate' ) );
@@ -165,6 +166,17 @@ final class Review_Content_Type {
 		$locale = apply_filters( 'plugin_locale', get_locale(), 'review-content-type' );
 		load_textdomain( 'review-content-type', WP_LANG_DIR . '/review-content-type/review-content-type-' . $locale . '.mo' );
 		load_plugin_textdomain( 'review-content-type', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	}
+
+	/**
+	 * Add custom image sizes.
+	 *
+	 * @since  1.0.0
+	 * @access private
+	 */
+	private function add_image_sizes() {
+		add_image_size( 'rct_featured_image', 320, 200, true );
+		add_image_size( 'rct_small', 60, 60, true );
 	}
 
 	/**
