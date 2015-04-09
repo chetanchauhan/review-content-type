@@ -150,3 +150,30 @@ function rct_review_content( $content ) {
 }
 
 add_filter( 'the_content', 'rct_review_content' );
+
+/**
+ * Retrieves the reviewed item name.
+ *
+ * @since   1.0.0
+ *
+ * @param int $review_id Review ID
+ *
+ * @return string
+ */
+function rct_get_reviewed_item_name( $review_id = 0 ) {
+	if ( ! $review_id ) {
+		$review_id = get_the_ID();
+	}
+	$name = get_post_meta( $review_id, '_rct_name', true );
+
+	return apply_filters( 'rct_get_reviewed_item_name', $name, $review_id );
+}
+
+/**
+ * Display the reviewed item name on single review page.
+ */
+function rct_display_review_name() {
+	rct_get_template_part( 'content-single-review-name' );
+}
+
+add_action( 'rct_before_review_content', 'rct_display_review_name', 10 );

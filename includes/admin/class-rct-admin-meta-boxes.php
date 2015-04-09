@@ -25,7 +25,15 @@ class RCT_Admin_Meta_Boxes {
 	 * @return  array
 	 */
 	protected function get_review_data_fields() {
-		$fields = array();
+		$fields = array(
+			'name'            => array(
+				'label'       => __( 'Name', 'review-content-type' ),
+				'description' => __( 'Name of the item that is being reviewed.', 'review-content-type' ),
+				'type'        => 'text',
+				'required'    => true,
+				'priority'    => 10,
+			),
+		);
 
 		return apply_filters( 'rct_review_data_fields', $fields );
 	}
