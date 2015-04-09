@@ -314,6 +314,15 @@ function rct_display_review_pros_cons() {
 add_action( 'rct_before_review_content', 'rct_display_review_pros_cons', 15 );
 
 /**
+ * Display the featured image on single review page.
+ */
+function rct_display_review_featured_image() {
+	rct_get_template_part( 'content-single-review-featured-image' );
+}
+
+add_action( 'rct_before_review_content', 'rct_display_review_featured_image', 20 );
+
+/**
  * Display the review summary on single review page.
  */
 function rct_display_review_summary() {

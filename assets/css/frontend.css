@@ -1,0 +1,19 @@
+.rct-review-pros-cons-wrap {
+	float: left;
+	width: 48%;
+}
+
+.rct-featured-image {
+	float: right;
+	width: 48%;
+}
+
+.rct-review-summary-wrap,
+.rct-review-content {
+	clear: both;
+}
+
+.single-review .rct-review-pros-cons-wrap h3,
+.single-review .rct-review-summary-wrap h3 {
+	margin-top: 0;
+}
