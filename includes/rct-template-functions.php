@@ -170,6 +170,90 @@ function rct_get_reviewed_item_name( $review_id = 0 ) {
 }
 
 /**
+ * Retrieves the review pros.
+ *
+ * @since   1.0.0
+ *
+ * @param int $review_id Review ID
+ *
+ * @return array
+ */
+function rct_get_review_pros( $review_id = 0 ) {
+	if ( ! $review_id ) {
+		$review_id = get_the_ID();
+	}
+	$pros = get_post_meta( $review_id, '_rct_pros', true );
+
+	return (array) apply_filters( 'rct_get_review_pros', $pros, $review_id );
+}
+
+/**
+ * Retrieves the review cons.
+ *
+ * @since   1.0.0
+ *
+ * @param int $review_id Review ID
+ *
+ * @return array
+ */
+function rct_get_review_cons( $review_id = 0 ) {
+	if ( ! $review_id ) {
+		$review_id = get_the_ID();
+	}
+	$cons = get_post_meta( $review_id, '_rct_cons', true );
+
+	return (array) apply_filters( 'rct_get_review_cons', $cons, $review_id );
+}
+
+/**
+ * Return or display the review pros heading.
+ *
+ * @since   1.0.0
+ *
+ * @param   int  $review_id Review ID
+ * @param   bool $echo      Whether to display or return.
+ *
+ * @return string
+ */
+function rct_review_pros_heading( $review_id = 0, $echo = true ) {
+	if ( ! $review_id ) {
+		$review_id = get_the_ID();
+	}
+	$heading = get_post_meta( $review_id, '_rct_pros_heading', true );
+	$heading = empty( $heading ) ? review_content_type()->settings->get( 'pros_heading', 'display' ) : $heading;
+
+	if ( $echo ) {
+		echo $heading;
+	} else {
+		return $heading;
+	}
+}
+
+/**
+ * Return or display the review cons heading.
+ *
+ * @since   1.0.0
+ *
+ * @param   int  $review_id Review ID
+ * @param   bool $echo      Whether to display or return.
+ *
+ * @return string
+ */
+function rct_review_cons_heading( $review_id = 0, $echo = true ) {
+	if ( ! $review_id ) {
+		$review_id = get_the_ID();
+	}
+	$heading = get_post_meta( $review_id, '_rct_cons_heading', true );
+	$heading = empty( $heading ) ? review_content_type()->settings->get( 'cons_heading', 'display' ) : $heading;
+
+	if ( $echo ) {
+		echo $heading;
+	} else {
+		return $heading;
+	}
+}
+
+/**
  * Display the reviewed item name on single review page.
  */
 function rct_display_review_name() {
@@ -177,3 +261,12 @@ function rct_display_review_name() {
 }
 
 add_action( 'rct_before_review_content', 'rct_display_review_name', 10 );
+
+/**
+ * Display the review pros & cons on single review page.
+ */
+function rct_display_review_pros_cons() {
+	rct_get_template_part( 'content-single-review-pros-cons' );
+}
+
+add_action( 'rct_before_review_content', 'rct_display_review_pros_cons', 15 );

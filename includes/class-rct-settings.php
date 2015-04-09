@@ -129,7 +129,23 @@ class RCT_Settings {
 	 * @return array
 	 */
 	protected function get_registered_settings() {
-		$settings = array();
+		$settings['display'] = array(
+			'tab'    => 'display',
+			'fields' => array(
+				'pros_heading' => array(
+					'label'       => __( 'Pros Heading Text', 'review-content-type' ),
+					'description' => __( 'The heading text used by default for displaying review pros.', 'review-content-type' ),
+					'default'     => __( 'Pros', 'review-content-type' ),
+					'type'        => 'text',
+				),
+				'cons_heading' => array(
+					'label'       => __( 'Cons Heading Text', 'review-content-type' ),
+					'description' => __( 'The heading text used by default for displaying review cons.', 'review-content-type' ),
+					'default'     => __( 'Cons', 'review-content-type' ),
+					'type'        => 'text',
+				),
+			)
+		);
 
 		return apply_filters( 'rct_settings', $settings );
 	}
@@ -144,6 +160,7 @@ class RCT_Settings {
 	protected function get_registered_tabs() {
 		$tabs = array(
 			'general' => __( 'General', 'review-content-type' ),
+			'display' => __( 'Display', 'review-content-type' ),
 		);
 
 		return apply_filters( 'rct_settings_tabs', $tabs );
