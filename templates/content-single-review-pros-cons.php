@@ -1,6 +1,6 @@
 <?php do_action( 'rct_before_pros_cons_wrap' ); ?>
 
-<div class="rct-pros-cons-wrap">
+<div class="rct-review-pros-cons-wrap">
 	<?php do_action( 'rct_before_pros_cons' ); ?>
 
 	<?php if ( $pros = rct_get_review_pros( get_the_ID() ) ) : ?>
