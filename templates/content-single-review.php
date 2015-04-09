@@ -2,7 +2,7 @@
 
 	<?php do_action( 'rct_before_review_content' ); ?>
 
-	<div itemprop="reviewBody">
+	<div class="rct-review-content" itemprop="reviewBody">
 		<?php the_content(); ?>
 	</div>
 
