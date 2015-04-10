@@ -17,7 +17,7 @@ class RCT_Admin {
 
 		require_once( 'class-rct-admin-meta-boxes.php' );
 		if ( 'options-permalink.php' === $pagenow ) {
-			require_once( 'class-rct-permalink-settings.php' );
+			require_once( 'class-rct-admin-permalink-settings.php' );
 		}
 
 		add_action( 'admin_menu', array( $this, 'add_admin_menus' ) );

@@ -5,9 +5,9 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Class RCT_Permalink_Settings
+ * Class RCT_Admin_Permalink_Settings
  */
-class RCT_Permalink_Settings {
+class RCT_Admin_Permalink_Settings {
 
 	/**
 	 * @since   1.0.0
@@ -86,4 +86,4 @@ class RCT_Permalink_Settings {
 	}
 }
 
-new RCT_Permalink_Settings();
+new RCT_Admin_Permalink_Settings();
