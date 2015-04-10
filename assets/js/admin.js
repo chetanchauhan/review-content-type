@@ -35,7 +35,7 @@
 			}
 		});
 
-		if(typeof $.fn.sortable === 'function' ){
+		if (typeof $.fn.sortable === 'function') {
 			$('.rct-repeatable').sortable({
 				axis: 'y',
 				cursor: 'move',
@@ -48,6 +48,14 @@
 				}
 			});
 		}
+
+		$('#rct_review_data-featured_image_link').on('change', function () {
+			if ('custom' === this.value) {
+				$('#rct_review_data-featured_image_link-url').show();
+			} else {
+				$('#rct_review_data-featured_image_link-url').hide();
+			}
+		}).trigger('change');
 
 	});
 }(jQuery));

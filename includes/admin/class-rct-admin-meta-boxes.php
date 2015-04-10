@@ -26,21 +26,21 @@ class RCT_Admin_Meta_Boxes {
 	 */
 	protected function get_review_data_fields() {
 		$fields = array(
-			'name'            => array(
+			'name'                => array(
 				'label'       => __( 'Name', 'review-content-type' ),
 				'description' => __( 'Name of the item that is being reviewed.', 'review-content-type' ),
 				'type'        => 'text',
 				'required'    => true,
 				'priority'    => 10,
 			),
-			'pros_heading'    => array(
+			'pros_heading'        => array(
 				'label'       => __( 'Pros Heading', 'review-content-type' ),
 				'description' => __( 'Leave blank to use default pros heading text.', 'review-content-type' ),
 				'type'        => 'text',
 				'placeholder' => review_content_type()->settings->get( 'pros_heading', 'display' ),
 				'priority'    => 20,
 			),
-			'pros'            => array(
+			'pros'                => array(
 				'label'       => __( 'Pros', 'review-content-type' ),
 				'description' => __( 'Mention all the good things about the item being reviewed.', 'review-content-type' ),
 				'type'        => 'text',
@@ -49,14 +49,14 @@ class RCT_Admin_Meta_Boxes {
 				'default'     => '',
 				'priority'    => 30,
 			),
-			'cons_heading'    => array(
+			'cons_heading'        => array(
 				'label'       => __( 'Cons Heading', 'review-content-type' ),
 				'description' => __( 'Leave blank to use default cons heading text.', 'review-content-type' ),
 				'type'        => 'text',
 				'placeholder' => review_content_type()->settings->get( 'cons_heading', 'display' ),
 				'priority'    => 40,
 			),
-			'cons'            => array(
+			'cons'                => array(
 				'label'       => __( 'Cons', 'review-content-type' ),
 				'description' => __( 'Mention all the bad things about the item being reviewed.', 'review-content-type' ),
 				'type'        => 'text',
@@ -65,14 +65,14 @@ class RCT_Admin_Meta_Boxes {
 				'default'     => '',
 				'priority'    => 50,
 			),
-			'summary_heading' => array(
+			'summary_heading'     => array(
 				'label'       => __( 'Summary Heading', 'review-content-type' ),
 				'description' => __( 'Leave blank to use default summary heading text.', 'review-content-type' ),
 				'type'        => 'text',
 				'placeholder' => review_content_type()->settings->get( 'summary_heading', 'display' ),
 				'priority'    => 60,
 			),
-			'summary'         => array(
+			'summary'             => array(
 				'label'       => __( 'Summary', 'review-content-type' ),
 				'description' => __( 'Brief description of the item being reviewed.', 'review-content-type' ),
 				'type'        => 'editor',
@@ -82,6 +82,16 @@ class RCT_Admin_Meta_Boxes {
 					'media_buttons' => false,
 				),
 				'priority'    => 70,
+			),
+			'featured_image_link' => array(
+				'label'       => __( 'Link Featured Image To', 'review-content-type' ),
+				'description' => __( 'Select where you want to link featured image.', 'review-content-type' ),
+				'type'        => 'featured_image_link',
+				'default'     => array(
+					'type' => '',
+					'url'  => '',
+				),
+				'priority'    => 80,
 			),
 		);
 
@@ -199,6 +209,27 @@ class RCT_Admin_Meta_Boxes {
 					</select>
 					<?php
 					break;
+				case 'featured_image_link':
+					$options = array(
+						'file'   => __( 'Media File', 'review-content-type' ),
+						'review' => __( 'Review Page', 'review-content-type' ),
+						'custom' => __( 'Custom URL', 'review-content-type' ),
+						'none'   => __( 'None', 'review-content-type' ),
+					);
+					?>
+					<select name="<?php echo esc_attr( $html_name . '[type]' ); ?>"
+					        id="<?php echo esc_attr( $html_id ); ?>">
+						<?php foreach ( $options as $key => $val ) : ?>
+							<option
+								value="<?php echo esc_attr( $key ); ?>" <?php selected( $value['type'], $key ); ?>><?php echo esc_html( $val ); ?></option>
+						<?php endforeach; ?>
+					</select>
+					<input type="text" id="<?php echo esc_attr( $html_id . '-url' ); ?>" class="hide-if-js"
+					       name="<?php echo esc_attr( $html_name . '[url]' ); ?>"
+					       value="<?php echo esc_attr( $value['url'] ); ?>"
+					       placeholder="<?php _e( 'Enter custom url here', 'review-content-type' ); ?>">
+					<?php
+					break;
 				default:
 					do_action( 'rct_render_review_data_' . $field['type'] . '_fields', $id, $field );
 			}
@@ -256,6 +287,12 @@ class RCT_Admin_Meta_Boxes {
 					break;
 				case 'editor':
 					$value = wp_kses_post( $value );
+					break;
+				case 'featured_image_link':
+					$value = array(
+						'type' => isset( $value['type'] ) ? sanitize_text_field( $value['type'] ) : '',
+						'url'  => isset( $value['url'] ) ? esc_url_raw( $value['url'] ) : '',
+					);
 					break;
 			}
 

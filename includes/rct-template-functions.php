@@ -296,6 +296,47 @@ function rct_review_summary_heading( $review_id = 0, $echo = true ) {
 }
 
 /**
+ * Retrieve the reviews featured image url.
+ *
+ * @since 1.0.0
+ *
+ * @param int $review_id Review ID
+ *
+ * @return string $url Review featured image url (if available). Otherwise empty string.
+ */
+function rct_get_featured_image_url( $review_id = 0 ) {
+	if ( ! $review_id ) {
+		$review_id = get_the_ID();
+	}
+
+	// Bail early if post type is not review.
+	if ( 'review' !== get_post_type( $review_id ) ) {
+		return '';
+	}
+
+	$link      = get_post_meta( $review_id, '_rct_featured_image_link', true );
+	$link_type = isset( $link['type'] ) ? $link['type'] : '';
+	switch ( $link_type ) {
+		case 'file':
+			$url = wp_get_attachment_url( get_post_thumbnail_id() );
+			if ( false === $url ) {
+				$url = rct_get_placeholder_image_url();
+			}
+			break;
+		case 'review':
+			$url = get_the_permalink( $review_id );
+			break;
+		case 'custom':
+			$url = isset( $link['url'] ) ? $link['url'] : '';
+			break;
+		default:
+			$url = '';
+	}
+
+	return apply_filters( 'rct_get_featured_image_url', $url, $link_type, $review_id );
+}
+
+/**
  * Display the reviewed item name on single review page.
  */
 function rct_display_review_name() {

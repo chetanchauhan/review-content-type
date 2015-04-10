@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Review Content Type 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/chetanchauhan/review-content-type/issues\n"
-"POT-Creation-Date: 2015-04-09 15:39:14+00:00\n"
+"POT-Creation-Date: 2015-04-10 12:45:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -84,24 +84,80 @@ msgstr ""
 msgid "Brief description of the item being reviewed."
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:97
+#: includes/admin/class-rct-admin-meta-boxes.php:87
+msgid "Link Featured Image To"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:88
+msgid "Select where you want to link featured image."
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:107
 msgid "Review Data"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:169
+#: includes/admin/class-rct-admin-meta-boxes.php:179
 msgid "Remove"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:169
+#: includes/admin/class-rct-admin-meta-boxes.php:179
 msgid "-"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:174
+#: includes/admin/class-rct-admin-meta-boxes.php:184
 msgid "Add"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:174
+#: includes/admin/class-rct-admin-meta-boxes.php:184
 msgid "+"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:214
+msgid "Media File"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:215
+msgid "Review Page"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:216
+msgid "Custom URL"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:217
+msgid "None"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:230
+msgid "Enter custom url here"
+msgstr ""
+
+#: includes/admin/class-rct-admin-permalink-settings.php:26
+msgid "Review Permalink Settings"
+msgstr ""
+
+#: includes/admin/class-rct-admin-permalink-settings.php:48
+msgid "Review base"
+msgstr ""
+
+#: includes/admin/class-rct-admin-permalink-settings.php:51
+msgid "Default"
+msgstr ""
+
+#: includes/admin/class-rct-admin-permalink-settings.php:52
+msgid "Review with category"
+msgstr ""
+
+#: includes/admin/class-rct-admin-permalink-settings.php:53
+msgid "Custom"
+msgstr ""
+
+#: includes/admin/class-rct-admin-permalink-settings.php:59
+msgid "Review category base"
+msgstr ""
+
+#: includes/admin/class-rct-admin-permalink-settings.php:65
+msgid "Review tag base"
 msgstr ""
 
 #: includes/admin/class-rct-admin.php:36
@@ -110,34 +166,6 @@ msgstr ""
 
 #: includes/admin/class-rct-admin.php:37 includes/admin/class-rct-admin.php:56
 msgid "Settings"
-msgstr ""
-
-#: includes/admin/class-rct-permalink-settings.php:26
-msgid "Review Permalink Settings"
-msgstr ""
-
-#: includes/admin/class-rct-permalink-settings.php:48
-msgid "Review base"
-msgstr ""
-
-#: includes/admin/class-rct-permalink-settings.php:51
-msgid "Default"
-msgstr ""
-
-#: includes/admin/class-rct-permalink-settings.php:52
-msgid "Review with category"
-msgstr ""
-
-#: includes/admin/class-rct-permalink-settings.php:53
-msgid "Custom"
-msgstr ""
-
-#: includes/admin/class-rct-permalink-settings.php:59
-msgid "Review category base"
-msgstr ""
-
-#: includes/admin/class-rct-permalink-settings.php:65
-msgid "Review tag base"
 msgstr ""
 
 #: includes/class-rct-post-types.php:55
@@ -386,19 +414,19 @@ msgstr ""
 msgid "https://github.com/chetanchauhan/"
 msgstr ""
 
-#: includes/admin/class-rct-permalink-settings.php:36
+#: includes/admin/class-rct-admin-permalink-settings.php:36
 #: includes/class-rct-post-types.php:132
 msgctxt "slug"
 msgid "reviews"
 msgstr ""
 
-#: includes/admin/class-rct-permalink-settings.php:61
+#: includes/admin/class-rct-admin-permalink-settings.php:61
 #: includes/class-rct-post-types.php:31
 msgctxt "slug"
 msgid "reviews/category"
 msgstr ""
 
-#: includes/admin/class-rct-permalink-settings.php:67
+#: includes/admin/class-rct-admin-permalink-settings.php:67
 #: includes/class-rct-post-types.php:32
 msgctxt "slug"
 msgid "reviews/tag"
