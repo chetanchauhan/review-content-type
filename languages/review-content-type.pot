@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Review Content Type 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/chetanchauhan/review-content-type/issues\n"
-"POT-Creation-Date: 2015-04-10 12:45:37+00:00\n"
+"POT-Creation-Date: 2015-04-12 07:27:14+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -85,50 +85,78 @@ msgid "Brief description of the item being reviewed."
 msgstr ""
 
 #: includes/admin/class-rct-admin-meta-boxes.php:87
-msgid "Link Featured Image To"
+msgid "Link URL"
 msgstr ""
 
 #: includes/admin/class-rct-admin-meta-boxes.php:88
+msgid "Leave blank to <strong>disable</strong> the call to action link."
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:90
+msgid "Enter link url here"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:94
+msgid "Link Featured Image To"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:95
 msgid "Select where you want to link featured image."
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:107
+#: includes/admin/class-rct-admin-meta-boxes.php:104
+msgid "Link Text"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:105
+msgid "Leave blank to use default link text."
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:111
+msgid "Link Style"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:112
+msgid "Select style for displaying the above call to action link."
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:129
 msgid "Review Data"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:179
+#: includes/admin/class-rct-admin-meta-boxes.php:201
 msgid "Remove"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:179
+#: includes/admin/class-rct-admin-meta-boxes.php:201
 msgid "-"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:184
+#: includes/admin/class-rct-admin-meta-boxes.php:206
 msgid "Add"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:184
+#: includes/admin/class-rct-admin-meta-boxes.php:206
 msgid "+"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:214
+#: includes/admin/class-rct-admin-meta-boxes.php:236
 msgid "Media File"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:215
+#: includes/admin/class-rct-admin-meta-boxes.php:237
 msgid "Review Page"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:216
+#: includes/admin/class-rct-admin-meta-boxes.php:238
 msgid "Custom URL"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:217
+#: includes/admin/class-rct-admin-meta-boxes.php:239
 msgid "None"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:230
+#: includes/admin/class-rct-admin-meta-boxes.php:252
 msgid "Enter custom url here"
 msgstr ""
 
@@ -376,16 +404,44 @@ msgstr ""
 msgid "The heading text used by default for displaying review summary."
 msgstr ""
 
-#: includes/class-rct-settings.php:168
+#: includes/class-rct-settings.php:154
+msgid "Default Link Text"
+msgstr ""
+
+#: includes/class-rct-settings.php:155
+msgid "Default text used for displaying the call to action links."
+msgstr ""
+
+#: includes/class-rct-settings.php:156
+msgid "Buy Now"
+msgstr ""
+
+#: includes/class-rct-settings.php:160
+msgid "Default Link Style"
+msgstr ""
+
+#: includes/class-rct-settings.php:161
+msgid "Select the style you want to use for all the links by default."
+msgstr ""
+
+#: includes/class-rct-settings.php:181
 msgid "General"
 msgstr ""
 
-#: includes/class-rct-settings.php:169
+#: includes/class-rct-settings.php:182
 msgid "Display"
 msgstr ""
 
-#: includes/class-rct-settings.php:355
+#: includes/class-rct-settings.php:368
 msgid "Settings updated."
+msgstr ""
+
+#: includes/rct-functions.php:108
+msgid "Button"
+msgstr ""
+
+#: includes/rct-functions.php:109
+msgid "Plain Text"
 msgstr ""
 
 #: review-content-type.php:99 review-content-type.php:108

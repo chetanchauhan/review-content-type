@@ -96,3 +96,18 @@ function rct_get_placeholder_image_url() {
 	 */
 	return apply_filters( 'rct_placeholder_image_url', RCT_URL . 'assets/images/placeholder.png' );
 }
+
+/**
+ * Retrieves available link styles.
+ *
+ * @since  1.0.0
+ * @return array
+ */
+function rct_get_link_styles() {
+	$styles = array(
+		'button' => __( 'Button', 'review-content-type' ),
+		'plain'  => __( 'Plain Text', 'review-content-type' )
+	);
+
+	return apply_filters( 'rct_link_styles', $styles );
+}

@@ -337,6 +337,48 @@ function rct_get_featured_image_url( $review_id = 0 ) {
 }
 
 /**
+ * Retrieves call to action link of a review.
+ *
+ * @since   1.0.0
+ *
+ * @param int $review_id Review ID
+ *
+ * @return string
+ */
+function rct_get_review_link( $review_id = 0 ) {
+	if ( ! $review_id ) {
+		$review_id = get_the_ID();
+	}
+	$link_url = esc_url( get_post_meta( $review_id, '_rct_link_url', true ) );
+	if ( empty( $link_url ) ) {
+		return;
+	}
+	$link_text = get_post_meta( $review_id, '_rct_link_text', true );
+	if ( empty( $link_text ) ) {
+		$link_text = review_content_type()->settings->get( 'link_text', 'display' );
+	}
+
+	$link_style = get_post_meta( $review_id, '_rct_link_style', true );
+
+	$css_classes = 'rct-review-link rct-' . $link_style . '-link-style';
+
+	$html = '<a class="' . esc_attr( $css_classes ) . '" href="' . $link_url . '" itemprop="url" target="_blank" rel="nofollow">' . $link_text . '</a>';
+
+	return $html;
+}
+
+/**
+ * Display the call to action link of a review.
+ *
+ * @since 1.0.0
+ *
+ * @param int $review_id Review ID
+ */
+function rct_review_link( $review_id = 0 ) {
+	echo rct_get_review_link( $review_id );
+}
+
+/**
  * Display the reviewed item name on single review page.
  */
 function rct_display_review_name() {
@@ -371,3 +413,8 @@ function rct_display_review_summary() {
 }
 
 add_action( 'rct_before_review_content', 'rct_display_review_summary', 30 );
+
+/**
+ * Display the review call to action link on single review page.
+ */
+add_action( 'rct_after_featured_image', 'rct_review_link', 10 );

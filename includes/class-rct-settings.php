@@ -150,6 +150,19 @@ class RCT_Settings {
 					'default'     => __( 'Summary', 'review-content-type' ),
 					'type'        => 'text',
 				),
+				'link_text'       => array(
+					'label'       => __( 'Default Link Text', 'review-content-type' ),
+					'description' => __( 'Default text used for displaying the call to action links.', 'review-content-type' ),
+					'default'     => __( 'Buy Now', 'review-content-type' ),
+					'type'        => 'text',
+				),
+				'link_style'      => array(
+					'label'       => __( 'Default Link Style', 'review-content-type' ),
+					'description' => __( 'Select the style you want to use for all the links by default.', 'review-content-type' ),
+					'options'     => rct_get_link_styles(),
+					'default'     => 'button',
+					'type'        => 'select',
+				),
 			)
 		);
 

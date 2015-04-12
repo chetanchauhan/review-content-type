@@ -83,6 +83,13 @@ class RCT_Admin_Meta_Boxes {
 				),
 				'priority'    => 70,
 			),
+			'link_url'            => array(
+				'label'       => __( 'Link URL', 'review-content-type' ),
+				'description' => __( 'Leave blank to <strong>disable</strong> the call to action link.', 'review-content-type' ),
+				'type'        => 'url',
+				'placeholder' => __( 'Enter link url here', 'review-content-type' ),
+				'priority'    => 80,
+			),
 			'featured_image_link' => array(
 				'label'       => __( 'Link Featured Image To', 'review-content-type' ),
 				'description' => __( 'Select where you want to link featured image.', 'review-content-type' ),
@@ -91,7 +98,22 @@ class RCT_Admin_Meta_Boxes {
 					'type' => '',
 					'url'  => '',
 				),
-				'priority'    => 80,
+				'priority'    => 90,
+			),
+			'link_text'           => array(
+				'label'       => __( 'Link Text', 'review-content-type' ),
+				'description' => __( 'Leave blank to use default link text.', 'review-content-type' ),
+				'type'        => 'text',
+				'placeholder' => review_content_type()->settings->get( 'link_text', 'display' ),
+				'priority'    => 100,
+			),
+			'link_style'          => array(
+				'label'       => __( 'Link Style', 'review-content-type' ),
+				'description' => __( 'Select style for displaying the above call to action link.', 'review-content-type' ),
+				'type'        => 'select',
+				'options'     => rct_get_link_styles(),
+				'default'     => review_content_type()->settings->get( 'link_style', 'display' ),
+				'priority'    => 110,
 			),
 		);
 
