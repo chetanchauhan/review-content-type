@@ -45,3 +45,13 @@
 	background: #246b8f;
 	text-decoration: none;
 }
+
+.rct-review-price {
+	margin: 0.7917em 0;
+	text-align: center;
+}
+
+.rct-review-price span:first-child {
+	display: block;
+	font-size: 2em;
+}

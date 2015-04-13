@@ -25,6 +25,8 @@ class RCT_Admin_Meta_Boxes {
 	 * @return  array
 	 */
 	protected function get_review_data_fields() {
+		$currency_symbol = rct_get_currency_symbol( review_content_type()->settings->get( 'currency', 'currency' ) );
+
 		$fields = array(
 			'name'                => array(
 				'label'       => __( 'Name', 'review-content-type' ),
@@ -83,12 +85,26 @@ class RCT_Admin_Meta_Boxes {
 				),
 				'priority'    => 70,
 			),
+			'min_price'           => array(
+				'label'       => __( 'Minimum Price', 'review-content-type' ) . ' (' . $currency_symbol . ')',
+				'description' => __( 'The price of the item being reviewed. In case of multiple prices, the lowest price of all available prices.', 'review-content-type' ),
+				'type'        => 'text',
+				'placeholder' => __( 'Enter minimum price here', 'review-content-type' ),
+				'priority'    => 80,
+			),
+			'max_price'           => array(
+				'label'       => __( 'Maximum Price', 'review-content-type' ) . ' (' . $currency_symbol . ')',
+				'description' => __( 'Leave blank if the item being reviewed has only single price. Otherwise, the highest price of all available prices.', 'review-content-type' ),
+				'type'        => 'text',
+				'placeholder' => __( 'Enter maximum price here', 'review-content-type' ),
+				'priority'    => 90,
+			),
 			'link_url'            => array(
 				'label'       => __( 'Link URL', 'review-content-type' ),
 				'description' => __( 'Leave blank to <strong>disable</strong> the call to action link.', 'review-content-type' ),
 				'type'        => 'url',
 				'placeholder' => __( 'Enter link url here', 'review-content-type' ),
-				'priority'    => 80,
+				'priority'    => 100,
 			),
 			'featured_image_link' => array(
 				'label'       => __( 'Link Featured Image To', 'review-content-type' ),
@@ -98,14 +114,14 @@ class RCT_Admin_Meta_Boxes {
 					'type' => '',
 					'url'  => '',
 				),
-				'priority'    => 90,
+				'priority'    => 110,
 			),
 			'link_text'           => array(
 				'label'       => __( 'Link Text', 'review-content-type' ),
 				'description' => __( 'Leave blank to use default link text.', 'review-content-type' ),
 				'type'        => 'text',
 				'placeholder' => review_content_type()->settings->get( 'link_text', 'display' ),
-				'priority'    => 100,
+				'priority'    => 120,
 			),
 			'link_style'          => array(
 				'label'       => __( 'Link Style', 'review-content-type' ),
@@ -113,7 +129,7 @@ class RCT_Admin_Meta_Boxes {
 				'type'        => 'select',
 				'options'     => rct_get_link_styles(),
 				'default'     => review_content_type()->settings->get( 'link_style', 'display' ),
-				'priority'    => 110,
+				'priority'    => 130,
 			),
 		);
 

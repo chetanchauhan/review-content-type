@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Review Content Type 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/chetanchauhan/review-content-type/issues\n"
-"POT-Creation-Date: 2015-04-12 07:27:14+00:00\n"
+"POT-Creation-Date: 2015-04-13 07:08:29+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,138 +25,166 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
-#: includes/admin/class-rct-admin-meta-boxes.php:30
+#: includes/admin/class-rct-admin-meta-boxes.php:32
 msgid "Name"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:31
+#: includes/admin/class-rct-admin-meta-boxes.php:33
 msgid "Name of the item that is being reviewed."
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:37
+#: includes/admin/class-rct-admin-meta-boxes.php:39
 msgid "Pros Heading"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:38
+#: includes/admin/class-rct-admin-meta-boxes.php:40
 msgid "Leave blank to use default pros heading text."
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:44
-#: includes/class-rct-settings.php:138
+#: includes/admin/class-rct-admin-meta-boxes.php:46
+#: includes/class-rct-settings.php:175
 msgid "Pros"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:45
+#: includes/admin/class-rct-admin-meta-boxes.php:47
 msgid "Mention all the good things about the item being reviewed."
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:53
+#: includes/admin/class-rct-admin-meta-boxes.php:55
 msgid "Cons Heading"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:54
+#: includes/admin/class-rct-admin-meta-boxes.php:56
 msgid "Leave blank to use default cons heading text."
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:60
-#: includes/class-rct-settings.php:144
+#: includes/admin/class-rct-admin-meta-boxes.php:62
+#: includes/class-rct-settings.php:181
 msgid "Cons"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:61
+#: includes/admin/class-rct-admin-meta-boxes.php:63
 msgid "Mention all the bad things about the item being reviewed."
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:69
+#: includes/admin/class-rct-admin-meta-boxes.php:71
 msgid "Summary Heading"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:70
+#: includes/admin/class-rct-admin-meta-boxes.php:72
 msgid "Leave blank to use default summary heading text."
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:76
-#: includes/class-rct-settings.php:150
+#: includes/admin/class-rct-admin-meta-boxes.php:78
+#: includes/class-rct-settings.php:187
 msgid "Summary"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:77
+#: includes/admin/class-rct-admin-meta-boxes.php:79
 msgid "Brief description of the item being reviewed."
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:87
-msgid "Link URL"
-msgstr ""
-
-#: includes/admin/class-rct-admin-meta-boxes.php:88
-msgid "Leave blank to <strong>disable</strong> the call to action link."
+#: includes/admin/class-rct-admin-meta-boxes.php:89
+msgid "Minimum Price"
 msgstr ""
 
 #: includes/admin/class-rct-admin-meta-boxes.php:90
-msgid "Enter link url here"
+msgid ""
+"The price of the item being reviewed. In case of multiple prices, the "
+"lowest price of all available prices."
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:94
-msgid "Link Featured Image To"
+#: includes/admin/class-rct-admin-meta-boxes.php:92
+msgid "Enter minimum price here"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:95
-msgid "Select where you want to link featured image."
+#: includes/admin/class-rct-admin-meta-boxes.php:96
+msgid "Maximum Price"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:97
+msgid ""
+"Leave blank if the item being reviewed has only single price. Otherwise, "
+"the highest price of all available prices."
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:99
+msgid "Enter maximum price here"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:103
+msgid "Link URL"
 msgstr ""
 
 #: includes/admin/class-rct-admin-meta-boxes.php:104
-msgid "Link Text"
+msgid "Leave blank to <strong>disable</strong> the call to action link."
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:105
-msgid "Leave blank to use default link text."
+#: includes/admin/class-rct-admin-meta-boxes.php:106
+msgid "Enter link url here"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:110
+msgid "Link Featured Image To"
 msgstr ""
 
 #: includes/admin/class-rct-admin-meta-boxes.php:111
+msgid "Select where you want to link featured image."
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:120
+msgid "Link Text"
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:121
+msgid "Leave blank to use default link text."
+msgstr ""
+
+#: includes/admin/class-rct-admin-meta-boxes.php:127
 msgid "Link Style"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:112
+#: includes/admin/class-rct-admin-meta-boxes.php:128
 msgid "Select style for displaying the above call to action link."
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:129
+#: includes/admin/class-rct-admin-meta-boxes.php:145
 msgid "Review Data"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:201
+#: includes/admin/class-rct-admin-meta-boxes.php:217
 msgid "Remove"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:201
+#: includes/admin/class-rct-admin-meta-boxes.php:217
 msgid "-"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:206
+#: includes/admin/class-rct-admin-meta-boxes.php:222
 msgid "Add"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:206
+#: includes/admin/class-rct-admin-meta-boxes.php:222
 msgid "+"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:236
+#: includes/admin/class-rct-admin-meta-boxes.php:252
 msgid "Media File"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:237
+#: includes/admin/class-rct-admin-meta-boxes.php:253
 msgid "Review Page"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:238
+#: includes/admin/class-rct-admin-meta-boxes.php:254
 msgid "Custom URL"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:239
+#: includes/admin/class-rct-admin-meta-boxes.php:255
 msgid "None"
 msgstr ""
 
-#: includes/admin/class-rct-admin-meta-boxes.php:252
+#: includes/admin/class-rct-admin-meta-boxes.php:268
 msgid "Enter custom url here"
 msgstr ""
 
@@ -380,59 +408,93 @@ msgstr ""
 msgid "Review content type."
 msgstr ""
 
-#: includes/class-rct-settings.php:136
-msgid "Pros Heading Text"
-msgstr ""
-
-#: includes/class-rct-settings.php:137
-msgid "The heading text used by default for displaying review pros."
-msgstr ""
-
-#: includes/class-rct-settings.php:142
-msgid "Cons Heading Text"
-msgstr ""
-
-#: includes/class-rct-settings.php:143
-msgid "The heading text used by default for displaying review cons."
+#: includes/class-rct-settings.php:147
+msgid "Currency Settings"
 msgstr ""
 
 #: includes/class-rct-settings.php:148
-msgid "Summary Heading Text"
+msgid ""
+"Manage the settings that affect how prices of the reviewed item get "
+"displayed on the frontend."
 msgstr ""
 
-#: includes/class-rct-settings.php:149
-msgid "The heading text used by default for displaying review summary."
+#: includes/class-rct-settings.php:151
+msgid "Currency"
 msgstr ""
 
-#: includes/class-rct-settings.php:154
-msgid "Default Link Text"
+#: includes/class-rct-settings.php:152
+msgid "Select currency to use for displaying prices."
 msgstr ""
 
-#: includes/class-rct-settings.php:155
-msgid "Default text used for displaying the call to action links."
+#: includes/class-rct-settings.php:158
+msgid "Currency Position"
 msgstr ""
 
-#: includes/class-rct-settings.php:156
-msgid "Buy Now"
-msgstr ""
-
-#: includes/class-rct-settings.php:160
-msgid "Default Link Style"
+#: includes/class-rct-settings.php:159
+msgid "Select position of the currency symbol."
 msgstr ""
 
 #: includes/class-rct-settings.php:161
+msgid "Before"
+msgstr ""
+
+#: includes/class-rct-settings.php:162
+msgid "After"
+msgstr ""
+
+#: includes/class-rct-settings.php:173
+msgid "Pros Heading Text"
+msgstr ""
+
+#: includes/class-rct-settings.php:174
+msgid "The heading text used by default for displaying review pros."
+msgstr ""
+
+#: includes/class-rct-settings.php:179
+msgid "Cons Heading Text"
+msgstr ""
+
+#: includes/class-rct-settings.php:180
+msgid "The heading text used by default for displaying review cons."
+msgstr ""
+
+#: includes/class-rct-settings.php:185
+msgid "Summary Heading Text"
+msgstr ""
+
+#: includes/class-rct-settings.php:186
+msgid "The heading text used by default for displaying review summary."
+msgstr ""
+
+#: includes/class-rct-settings.php:191
+msgid "Default Link Text"
+msgstr ""
+
+#: includes/class-rct-settings.php:192
+msgid "Default text used for displaying the call to action links."
+msgstr ""
+
+#: includes/class-rct-settings.php:193
+msgid "Buy Now"
+msgstr ""
+
+#: includes/class-rct-settings.php:197
+msgid "Default Link Style"
+msgstr ""
+
+#: includes/class-rct-settings.php:198
 msgid "Select the style you want to use for all the links by default."
 msgstr ""
 
-#: includes/class-rct-settings.php:181
+#: includes/class-rct-settings.php:218
 msgid "General"
 msgstr ""
 
-#: includes/class-rct-settings.php:182
+#: includes/class-rct-settings.php:219
 msgid "Display"
 msgstr ""
 
-#: includes/class-rct-settings.php:368
+#: includes/class-rct-settings.php:405
 msgid "Settings updated."
 msgstr ""
 
@@ -442,6 +504,182 @@ msgstr ""
 
 #: includes/rct-functions.php:109
 msgid "Plain Text"
+msgstr ""
+
+#: includes/rct-functions.php:123
+msgid "Australian Dollars"
+msgstr ""
+
+#: includes/rct-functions.php:124
+msgid "Bangladeshi Taka"
+msgstr ""
+
+#: includes/rct-functions.php:125
+msgid "Brazilian Real"
+msgstr ""
+
+#: includes/rct-functions.php:126
+msgid "Bulgarian Lev"
+msgstr ""
+
+#: includes/rct-functions.php:127
+msgid "Canadian Dollars"
+msgstr ""
+
+#: includes/rct-functions.php:128
+msgid "Chilean Peso"
+msgstr ""
+
+#: includes/rct-functions.php:129
+msgid "Chinese Yuan"
+msgstr ""
+
+#: includes/rct-functions.php:130
+msgid "Colombian Peso"
+msgstr ""
+
+#: includes/rct-functions.php:131
+msgid "Czech Koruna"
+msgstr ""
+
+#: includes/rct-functions.php:132
+msgid "Danish Krone"
+msgstr ""
+
+#: includes/rct-functions.php:133
+msgid "Dominican Peso"
+msgstr ""
+
+#: includes/rct-functions.php:134
+msgid "Euros"
+msgstr ""
+
+#: includes/rct-functions.php:135
+msgid "Hong Kong Dollar"
+msgstr ""
+
+#: includes/rct-functions.php:136
+msgid "Croatia kuna"
+msgstr ""
+
+#: includes/rct-functions.php:137
+msgid "Hungarian Forint"
+msgstr ""
+
+#: includes/rct-functions.php:138
+msgid "Icelandic krona"
+msgstr ""
+
+#: includes/rct-functions.php:139
+msgid "Indonesia Rupiah"
+msgstr ""
+
+#: includes/rct-functions.php:140
+msgid "Indian Rupee"
+msgstr ""
+
+#: includes/rct-functions.php:141
+msgid "Nepali Rupee"
+msgstr ""
+
+#: includes/rct-functions.php:142
+msgid "Israeli Shekel"
+msgstr ""
+
+#: includes/rct-functions.php:143
+msgid "Japanese Yen"
+msgstr ""
+
+#: includes/rct-functions.php:144
+msgid "Lao Kip"
+msgstr ""
+
+#: includes/rct-functions.php:145
+msgid "South Korean Won"
+msgstr ""
+
+#: includes/rct-functions.php:146
+msgid "Malaysian Ringgits"
+msgstr ""
+
+#: includes/rct-functions.php:147
+msgid "Mexican Peso"
+msgstr ""
+
+#: includes/rct-functions.php:148
+msgid "Nigerian Naira"
+msgstr ""
+
+#: includes/rct-functions.php:149
+msgid "Norwegian Krone"
+msgstr ""
+
+#: includes/rct-functions.php:150
+msgid "New Zealand Dollar"
+msgstr ""
+
+#: includes/rct-functions.php:151
+msgid "Paraguayan Guaraní"
+msgstr ""
+
+#: includes/rct-functions.php:152
+msgid "Philippine Pesos"
+msgstr ""
+
+#: includes/rct-functions.php:153
+msgid "Polish Zloty"
+msgstr ""
+
+#: includes/rct-functions.php:154
+msgid "Pounds Sterling"
+msgstr ""
+
+#: includes/rct-functions.php:155
+msgid "Romanian Leu"
+msgstr ""
+
+#: includes/rct-functions.php:156
+msgid "Russian Ruble"
+msgstr ""
+
+#: includes/rct-functions.php:157
+msgid "Singapore Dollar"
+msgstr ""
+
+#: includes/rct-functions.php:158
+msgid "South African rand"
+msgstr ""
+
+#: includes/rct-functions.php:159
+msgid "Swedish Krona"
+msgstr ""
+
+#: includes/rct-functions.php:160
+msgid "Swiss Franc"
+msgstr ""
+
+#: includes/rct-functions.php:161
+msgid "Taiwan New Dollars"
+msgstr ""
+
+#: includes/rct-functions.php:162
+msgid "Thai Baht"
+msgstr ""
+
+#: includes/rct-functions.php:163
+msgid "Turkish Lira"
+msgstr ""
+
+#: includes/rct-functions.php:164
+msgid "US Dollars"
+msgstr ""
+
+#: includes/rct-functions.php:165
+msgid "Vietnamese Dong"
+msgstr ""
+
+#: includes/rct-functions.php:166
+msgid "Egyptian Pound"
 msgstr ""
 
 #: review-content-type.php:99 review-content-type.php:108

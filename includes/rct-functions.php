@@ -111,3 +111,268 @@ function rct_get_link_styles() {
 
 	return apply_filters( 'rct_link_styles', $styles );
 }
+
+/**
+ * Retrieves all the available currencies.
+ *
+ * @since   1.0.0
+ * @return  array
+ */
+function rct_get_currencies() {
+	$currencies = array(
+		'AUD' => __( 'Australian Dollars', 'review-content-type' ),
+		'BDT' => __( 'Bangladeshi Taka', 'review-content-type' ),
+		'BRL' => __( 'Brazilian Real', 'review-content-type' ),
+		'BGN' => __( 'Bulgarian Lev', 'review-content-type' ),
+		'CAD' => __( 'Canadian Dollars', 'review-content-type' ),
+		'CLP' => __( 'Chilean Peso', 'review-content-type' ),
+		'CNY' => __( 'Chinese Yuan', 'review-content-type' ),
+		'COP' => __( 'Colombian Peso', 'review-content-type' ),
+		'CZK' => __( 'Czech Koruna', 'review-content-type' ),
+		'DKK' => __( 'Danish Krone', 'review-content-type' ),
+		'DOP' => __( 'Dominican Peso', 'review-content-type' ),
+		'EUR' => __( 'Euros', 'review-content-type' ),
+		'HKD' => __( 'Hong Kong Dollar', 'review-content-type' ),
+		'HRK' => __( 'Croatia kuna', 'review-content-type' ),
+		'HUF' => __( 'Hungarian Forint', 'review-content-type' ),
+		'ISK' => __( 'Icelandic krona', 'review-content-type' ),
+		'IDR' => __( 'Indonesia Rupiah', 'review-content-type' ),
+		'INR' => __( 'Indian Rupee', 'review-content-type' ),
+		'NPR' => __( 'Nepali Rupee', 'review-content-type' ),
+		'ILS' => __( 'Israeli Shekel', 'review-content-type' ),
+		'JPY' => __( 'Japanese Yen', 'review-content-type' ),
+		'KIP' => __( 'Lao Kip', 'review-content-type' ),
+		'KRW' => __( 'South Korean Won', 'review-content-type' ),
+		'MYR' => __( 'Malaysian Ringgits', 'review-content-type' ),
+		'MXN' => __( 'Mexican Peso', 'review-content-type' ),
+		'NGN' => __( 'Nigerian Naira', 'review-content-type' ),
+		'NOK' => __( 'Norwegian Krone', 'review-content-type' ),
+		'NZD' => __( 'New Zealand Dollar', 'review-content-type' ),
+		'PYG' => __( 'Paraguayan Guaraní', 'review-content-type' ),
+		'PHP' => __( 'Philippine Pesos', 'review-content-type' ),
+		'PLN' => __( 'Polish Zloty', 'review-content-type' ),
+		'GBP' => __( 'Pounds Sterling', 'review-content-type' ),
+		'RON' => __( 'Romanian Leu', 'review-content-type' ),
+		'RUB' => __( 'Russian Ruble', 'review-content-type' ),
+		'SGD' => __( 'Singapore Dollar', 'review-content-type' ),
+		'ZAR' => __( 'South African rand', 'review-content-type' ),
+		'SEK' => __( 'Swedish Krona', 'review-content-type' ),
+		'CHF' => __( 'Swiss Franc', 'review-content-type' ),
+		'TWD' => __( 'Taiwan New Dollars', 'review-content-type' ),
+		'THB' => __( 'Thai Baht', 'review-content-type' ),
+		'TRY' => __( 'Turkish Lira', 'review-content-type' ),
+		'USD' => __( 'US Dollars', 'review-content-type' ),
+		'VND' => __( 'Vietnamese Dong', 'review-content-type' ),
+		'EGP' => __( 'Egyptian Pound', 'review-content-type' ),
+	);
+
+	return apply_filters( 'rct_currencies', $currencies );
+}
+
+/**
+ * Retrieves symbol of the given currency.
+ *
+ * @since 1.0.0
+ *
+ * @param string $currency Currency code.
+ *
+ * @return string $currency_symbol Currency symbol.
+ */
+function rct_get_currency_symbol( $currency ) {
+	switch ( $currency ) {
+		case 'BDT':
+			$currency_symbol = '&#2547;&nbsp;';
+			break;
+		case 'BRL' :
+			$currency_symbol = '&#82;&#36;';
+			break;
+		case 'BGN' :
+			$currency_symbol = '&#1083;&#1074;.';
+			break;
+		case 'AUD' :
+		case 'CAD' :
+		case 'CLP' :
+		case 'COP' :
+		case 'MXN' :
+		case 'NZD' :
+		case 'HKD' :
+		case 'SGD' :
+		case 'USD' :
+			$currency_symbol = '&#36;';
+			break;
+		case 'EUR' :
+			$currency_symbol = '&euro;';
+			break;
+		case 'CNY' :
+		case 'RMB' :
+		case 'JPY' :
+			$currency_symbol = '&yen;';
+			break;
+		case 'RUB' :
+			$currency_symbol = '&#1088;&#1091;&#1073;.';
+			break;
+		case 'KRW' :
+			$currency_symbol = '&#8361;';
+			break;
+		case 'PYG' :
+			$currency_symbol = '&#8370;';
+			break;
+		case 'TRY' :
+			$currency_symbol = '&#8378;';
+			break;
+		case 'NOK' :
+			$currency_symbol = '&#107;&#114;';
+			break;
+		case 'ZAR' :
+			$currency_symbol = '&#82;';
+			break;
+		case 'CZK' :
+			$currency_symbol = '&#75;&#269;';
+			break;
+		case 'MYR' :
+			$currency_symbol = '&#82;&#77;';
+			break;
+		case 'DKK' :
+			$currency_symbol = 'kr.';
+			break;
+		case 'HUF' :
+			$currency_symbol = '&#70;&#116;';
+			break;
+		case 'IDR' :
+			$currency_symbol = 'Rp';
+			break;
+		case 'INR' :
+			$currency_symbol = '&#8377;';
+			break;
+		case 'NPR' :
+			$currency_symbol = 'Rs.';
+			break;
+		case 'ISK' :
+			$currency_symbol = 'Kr.';
+			break;
+		case 'ILS' :
+			$currency_symbol = '&#8362;';
+			break;
+		case 'PHP' :
+			$currency_symbol = '&#8369;';
+			break;
+		case 'PLN' :
+			$currency_symbol = '&#122;&#322;';
+			break;
+		case 'SEK' :
+			$currency_symbol = '&#107;&#114;';
+			break;
+		case 'CHF' :
+			$currency_symbol = '&#67;&#72;&#70;';
+			break;
+		case 'TWD' :
+			$currency_symbol = '&#78;&#84;&#36;';
+			break;
+		case 'THB' :
+			$currency_symbol = '&#3647;';
+			break;
+		case 'GBP' :
+			$currency_symbol = '&pound;';
+			break;
+		case 'RON' :
+			$currency_symbol = 'lei';
+			break;
+		case 'VND' :
+			$currency_symbol = '&#8363;';
+			break;
+		case 'NGN' :
+			$currency_symbol = '&#8358;';
+			break;
+		case 'HRK' :
+			$currency_symbol = 'Kn';
+			break;
+		case 'EGP' :
+			$currency_symbol = 'EGP';
+			break;
+		case 'DOP' :
+			$currency_symbol = 'RD&#36;';
+			break;
+		case 'KIP' :
+			$currency_symbol = '&#8365;';
+			break;
+		default    :
+			$currency_symbol = $currency;
+			break;
+	}
+
+	return apply_filters( 'rct_currency_symbol', $currency_symbol, $currency );
+}
+
+/**
+ * Retrieves the nicely formatted price amount.
+ *
+ * @since   1.0.0
+ *
+ * @param   string $price Sanitized price amount to be formatted.
+ *
+ * @return  string Formatted price amount with currency symbol and thousands separator.
+ */
+function rct_format_price_amount( $price ) {
+	if ( rct_is_empty( $price ) ) {
+		return '';
+	}
+
+	$currency      = review_content_type()->settings->get( 'currency', 'currency' );
+	$thousands_sep = apply_filters( 'rct_price_thousands_separator', ',' );
+	$decimal_sep   = apply_filters( 'rct_price_decimal_separator', '.' );
+	$decimals      = absint( apply_filters( 'rct_price_decimals_count', 2 ) );
+
+	$price = number_format( $price, $decimals, $decimal_sep, $thousands_sep );
+
+	switch ( review_content_type()->settings->get( 'currency_position', 'currency' ) ) {
+		case 'before':
+			$formatted = rct_get_currency_symbol( $currency ) . $price;
+			break;
+		case 'after':
+		default:
+			$formatted = $price . rct_get_currency_symbol( $currency );
+	}
+
+	return apply_filters( 'rct_formatted_price_amount', $formatted, $price, $decimals, $decimal_sep, $thousands_sep );
+}
+
+/**
+ * Sanitize price amount by stripping out any invalid characters.
+ *
+ * @since   1.0.0
+ *
+ * @param   string $price Price amount to be sanitized.
+ *
+ * @return  string $price Sanitized price amount.
+ */
+function rct_sanitize_price_amount( $price ) {
+	$price = preg_replace( '/[^0-9\.]/', '', $price );
+
+	// Remove trailing zeros and everything after second decimal point.
+	if ( '' !== $price ) {
+		$price = (string) floatval( $price );
+	}
+
+	return apply_filters( 'rct_sanitize_price_amount', $price );
+}
+
+add_filter( 'rct_sanitize_review_data_min_price_field', 'rct_sanitize_price_amount', 10 );
+add_filter( 'rct_sanitize_review_data_max_price_field', 'rct_sanitize_price_amount', 10 );
+
+
+/**
+ * Determine whether a variable is empty.
+ *
+ * The main difference between this and empty() is that 0 as a string
+ * is not considered to be empty.
+ *
+ * @since   1.0.0
+ *
+ * @param   mixed $var
+ *
+ * @return  bool
+ */
+function rct_is_empty( $var ) {
+	return ! ( isset( $var ) && ( '0' === $var || $var ) );
+}
+

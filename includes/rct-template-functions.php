@@ -224,6 +224,48 @@ function rct_get_review_summary( $review_id = 0 ) {
 }
 
 /**
+ * Retrieves the minimum price.
+ *
+ * @since 1.0.0
+ *
+ * @param int  $review_id Review ID
+ * @param bool $format    Whether to format the price or not.
+ *
+ * @return string Minimum price. Optionally formatted.
+ */
+function rct_get_min_price( $review_id = 0, $format = false ) {
+	if ( ! $review_id ) {
+		$review_id = get_the_ID();
+	}
+	$price = get_post_meta( $review_id, '_rct_min_price', true );
+	$price = rct_sanitize_price_amount( $price );
+	$price = $format ? rct_format_price_amount( $price ) : $price;
+
+	return apply_filters( 'rct_get_min_price', $price, $review_id, $format );
+}
+
+/**
+ * Retrieves the maximum price.
+ *
+ * @since 1.0.0
+ *
+ * @param int  $review_id Review ID
+ * @param bool $format    Whether to format the price or not.
+ *
+ * @return string Maximum price. Optionally formatted.
+ */
+function rct_get_max_price( $review_id = 0, $format = false ) {
+	if ( ! $review_id ) {
+		$review_id = get_the_ID();
+	}
+	$price = get_post_meta( $review_id, '_rct_max_price', true );
+	$price = rct_sanitize_price_amount( $price );
+	$price = $format ? rct_format_price_amount( $price ) : $price;
+
+	return apply_filters( 'rct_get_max_price', $price, $review_id, $format );
+}
+
+/**
  * Return or display the review pros heading.
  *
  * @since   1.0.0
@@ -415,6 +457,16 @@ function rct_display_review_summary() {
 add_action( 'rct_before_review_content', 'rct_display_review_summary', 30 );
 
 /**
+ * Display review price on single review page.
+ */
+function rct_display_review_price() {
+	rct_get_template_part( 'content-single-review-price' );
+}
+
+add_action( 'rct_after_featured_image', 'rct_display_review_price', 10 );
+
+/**
  * Display the review call to action link on single review page.
  */
-add_action( 'rct_after_featured_image', 'rct_review_link', 10 );
+add_action( 'rct_after_featured_image', 'rct_review_link', 20 );
+

@@ -129,7 +129,44 @@ class RCT_Settings {
 	 * @return array
 	 */
 	protected function get_registered_settings() {
-		$settings['display'] = array(
+		$currency_options = rct_get_currencies();
+		foreach ( $currency_options as $currency_code => $currency_label ) {
+			$currency_options[ $currency_code ] = $currency_label . ' (' . rct_get_currency_symbol( $currency_code ) . ')';
+		}
+
+		// Get the currently saved currency using default currency as fallback.
+		$currency = $this->get( 'currency', 'currency' );
+		if ( ! isset( $currency ) ) {
+			$currency = 'USD';
+		}
+
+		$currency_symbol = rct_get_currency_symbol( $currency );
+
+		$settings['currency'] = array(
+			'tab'         => 'general',
+			'title'       => __( 'Currency Settings', 'review-content-type' ),
+			'description' => __( 'Manage the settings that affect how prices of the reviewed item get displayed on the frontend.', 'review-content-type' ),
+			'fields'      => array(
+				'currency'          => array(
+					'label'       => __( 'Currency', 'review-content-type' ),
+					'description' => __( 'Select currency to use for displaying prices.', 'review-content-type' ),
+					'options'     => $currency_options,
+					'default'     => 'USD',
+					'type'        => 'select',
+				),
+				'currency_position' => array(
+					'label'       => __( 'Currency Position', 'review-content-type' ),
+					'description' => __( 'Select position of the currency symbol.', 'review-content-type' ),
+					'options'     => array(
+						'before' => __( 'Before', 'review-content-type' ) . ' (' . $currency_symbol . '99.99)',
+						'after'  => __( 'After', 'review-content-type' ) . ' (99.99' . $currency_symbol . ')',
+					),
+					'default'     => 'before',
+					'type'        => 'select',
+				),
+			),
+		);
+		$settings['display']  = array(
 			'tab'    => 'display',
 			'fields' => array(
 				'pros_heading'    => array(
