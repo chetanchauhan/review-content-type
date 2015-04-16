@@ -166,7 +166,26 @@ class RCT_Settings {
 				),
 			),
 		);
-		$settings['display']  = array(
+
+		$settings['rating'] = array(
+			'tab'    => 'rating',
+			'fields' => array(
+				'rating_type'  => array(
+					'label'       => __( 'Default Rating Type', 'review-content-type' ),
+					'description' => __( 'Select the default rating type.', 'review-content-type' ),
+					'options'     => rct_get_rating_types(),
+					'default'     => 'star',
+					'type'        => 'select',
+				),
+				'rating_scale' => array(
+					'label'       => __( 'Rating Scale', 'review-content-type' ),
+					'description' => __( 'Customize the scale for all available rating types as per your likings and all the existing ratings will get adjusted automatically to the new scale when gets displayed.', 'review-content-type' ),
+					'type'        => 'rating_scale',
+				),
+			),
+		);
+
+		$settings['display'] = array(
 			'tab'    => 'display',
 			'fields' => array(
 				'pros_heading'    => array(
@@ -216,6 +235,7 @@ class RCT_Settings {
 	protected function get_registered_tabs() {
 		$tabs = array(
 			'general' => __( 'General', 'review-content-type' ),
+			'rating'  => __( 'Rating', 'review-content-type' ),
 			'display' => __( 'Display', 'review-content-type' ),
 		);
 
@@ -339,6 +359,57 @@ class RCT_Settings {
 				</label>
 				<?php
 				break;
+			case 'rating_scale': ?>
+				<table class="rct-rating-scale widefat">
+					<thead>
+					<tr>
+						<?php
+						$columns = array(
+							'type' => __( 'Rating Type', 'review-content-type' ),
+							'min'  => __( 'Minimum', 'review-content-type' ),
+							'max'  => __( 'Maximum', 'review-content-type' ),
+							'step' => __( 'Step', 'review-content-type' ),
+						);
+						foreach ( $columns as $key => $column ) {
+							echo '<th class="' . esc_attr( $key ) . '">' . esc_html( $column ) . '</th>';
+						}
+						?>
+					</tr>
+					</thead>
+					<tbody>
+					<?php
+					$rating_types = rct_get_rating_types();
+					foreach ( $rating_types as $rating_type => $rating_title ) {
+						$scale = rct_get_rating_scale( $rating_type );
+						echo '<tr>';
+						foreach ( $columns as $key => $column ) {
+							switch ( $key ) {
+								case 'type' :
+									echo '<td class="type">
+											' . esc_html( $rating_title ) . '
+										</td>';
+									break;
+								case 'min' :
+								case 'max':
+									echo '<td class="' . $key . '">
+											<input type="number" min="0" name="' . esc_attr( $html_name . '[' . $rating_type . '][' . $key . ']' ) . '" value="' . esc_attr( $scale[ $key ] ) . '" >
+										</td>';
+									break;
+								case 'step':
+									echo '<td class="step">
+											<input type="number" min="0" step="any" name="' . esc_attr( $html_name . '[' . $rating_type . '][step]' ) . '" value="' . esc_attr( $scale['step'] ) . '" >
+										</td>';
+									break;
+							}
+						}
+						echo '</tr>';
+					}
+					?>
+					</tbody>
+				</table>
+				<p class="description"><?php echo $field['description']; ?></p>
+				<?php
+				break;
 			default:
 				do_action( 'rct_render_' . $field['type'] . '_settings', $args, $field, $value );
 		}
@@ -442,3 +513,4 @@ class RCT_Settings {
 	}
 
 }
+

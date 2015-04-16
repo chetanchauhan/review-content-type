@@ -53,3 +53,19 @@ ul.rct-inline-list li {
 	margin-left: 5px;
 	vertical-align: middle;
 }
+
+.rct-rating-scale th {
+	padding: 15px 10px;
+}
+
+.rct-rating-field input {
+	display: inline;
+	width: 20%;
+	max-width: 60px;
+	margin-right: 2%;
+}
+
+.rct-rating-field .rct-rating-slider {
+	display: inline-block;
+	width: 70%;
+}

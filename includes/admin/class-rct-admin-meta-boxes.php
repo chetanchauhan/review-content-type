@@ -131,6 +131,20 @@ class RCT_Admin_Meta_Boxes {
 				'default'     => review_content_type()->settings->get( 'link_style', 'display' ),
 				'priority'    => 130,
 			),
+			'rating_type'         => array(
+				'label'       => __( 'Rating Type', 'review-content-type' ),
+				'description' => __( 'Select rating type.', 'review-content-type' ),
+				'type'        => 'select',
+				'options'     => rct_get_rating_types(),
+				'default'     => review_content_type()->settings->get( 'rating_type', 'rating' ),
+				'priority'    => 140,
+			),
+			'rating'              => array(
+				'label'       => __( 'Rating', 'review-content-type' ),
+				'description' => __( 'Rate the item being reviewed.', 'review-content-type' ),
+				'type'        => 'rating',
+				'priority'    => 150,
+			),
 		);
 
 		return apply_filters( 'rct_review_data_fields', $fields );
@@ -268,6 +282,22 @@ class RCT_Admin_Meta_Boxes {
 					       placeholder="<?php _e( 'Enter custom url here', 'review-content-type' ); ?>">
 					<?php
 					break;
+				case 'rating':
+					$rating_type  = rct_get_rating_type( $post->ID );
+					$rating_scale = rct_get_rating_scale( $rating_type );
+					$value        = rct_adjust_rating( $value, $rating_type );
+					?>
+					<input readonly="readonly" class="rct-rating-value" type="text"
+					       id="<?php echo esc_attr( $html_id ); ?>"
+					       name="<?php echo esc_attr( $html_name . '[value]' ); ?>"
+					       value="<?php echo esc_attr( $value ); ?>">
+					<div class="rct-rating-slider" data-min="<?php echo esc_attr( $rating_scale['min'] );?>"
+					     data-max="<?php echo esc_attr( $rating_scale['max'] );?>"
+					     data-step="<?php echo esc_attr( $rating_scale['step'] );?>"></div>
+					<input type="hidden" name="<?php echo esc_attr( $html_name . '[type]' ); ?>"
+					       value="<?php echo esc_attr( $rating_type );?>">
+					<?php
+					break;
 				default:
 					do_action( 'rct_render_review_data_' . $field['type'] . '_fields', $id, $field );
 			}
@@ -331,6 +361,9 @@ class RCT_Admin_Meta_Boxes {
 						'type' => isset( $value['type'] ) ? sanitize_text_field( $value['type'] ) : '',
 						'url'  => isset( $value['url'] ) ? esc_url_raw( $value['url'] ) : '',
 					);
+					break;
+				case 'rating':
+					$value = rct_adjust_rating( $value['value'], $value['type'], true );
 					break;
 			}
 

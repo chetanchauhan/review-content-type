@@ -421,6 +421,83 @@ function rct_review_link( $review_id = 0 ) {
 }
 
 /**
+ * Retrieves rating type that should be used for displaying
+ * ratings of a review.
+ *
+ * @since   1.0.0
+ *
+ * @param int $review_id Review ID
+ *
+ * @return string
+ */
+function rct_get_rating_type( $review_id = 0 ) {
+	if ( ! $review_id ) {
+		$review_id = get_the_ID();
+	}
+
+	$rating_type = get_post_meta( $review_id, '_rct_rating_type', true );
+	if ( empty( $rating_type ) ) {
+		$rating_type = review_content_type()->settings->get( 'rating_type', 'rating' );
+	}
+
+	return apply_filters( 'rct_get_rating_type', $rating_type, $review_id );
+}
+
+/**
+ * Retrieves rating value of a review on the scale of 0-100.
+ *
+ * @since   1.0.0
+ *
+ * @param int $review_id Review ID
+ *
+ * @return string
+ */
+function rct_get_review_rating( $review_id = 0 ) {
+	if ( ! $review_id ) {
+		$review_id = get_the_ID();
+	}
+
+	return min( abs( get_post_meta( $review_id, '_rct_rating', true ) ), 100 );
+}
+
+/**
+ * Outputs the rating.
+ *
+ * @since 1.0.0
+ *
+ * @param int|float $rating      Rating to display, expressed in 0-100 scale.
+ * @param string    $rating_type Rating type that should be used for displaying the rating.
+ */
+function rct_rating_html( $rating, $rating_type ) {
+	$rating = rct_adjust_rating( $rating, $rating_type );
+	$scale  = rct_get_rating_scale( $rating_type );
+	$title  = sprintf( __( 'Rated %s out of %s', 'review-content-type' ), $rating, $scale['max'] );
+
+	$html = '<span class="rct-' . sanitize_html_class( $rating_type ) . '-rating" title="' . esc_attr( $title ) . '">';
+
+	$html .= '<span class="screen-reader-text">' . $title . '</span>';
+
+	switch ( $rating_type ) {
+		case 'star':
+			// Calculate the number of each type of star needed
+			$full_stars  = floor( $rating );
+			$half_stars  = ceil( $rating - $full_stars );
+			$empty_stars = $scale['max'] - $full_stars - $half_stars;
+			$html .= str_repeat( '<span class="dashicons dashicons-star-filled"></span>', $full_stars );
+			$html .= str_repeat( '<span class="dashicons dashicons-star-half"></span>', $half_stars );
+			$html .= str_repeat( '<span class="dashicons dashicons-star-empty"></span>', $empty_stars );
+			break;
+		case 'percent':
+			$html .= "{$rating}%";
+			break;
+		default:
+			$html .= $rating . '/' . $scale['max'];
+	}
+
+	echo apply_filters( 'rct_rating_html', $html, $rating, $rating_type );
+}
+
+/**
  * Display the reviewed item name on single review page.
  */
 function rct_display_review_name() {
@@ -457,16 +534,26 @@ function rct_display_review_summary() {
 add_action( 'rct_before_review_content', 'rct_display_review_summary', 30 );
 
 /**
+ * Display review rating on single review page.
+ */
+function rct_display_review_rating() {
+	rct_get_template_part( 'content-single-review-rating' );
+}
+
+add_action( 'rct_after_featured_image', 'rct_display_review_rating', 10 );
+
+/**
  * Display review price on single review page.
  */
 function rct_display_review_price() {
 	rct_get_template_part( 'content-single-review-price' );
 }
 
-add_action( 'rct_after_featured_image', 'rct_display_review_price', 10 );
+add_action( 'rct_after_featured_image', 'rct_display_review_price', 20 );
 
 /**
  * Display the review call to action link on single review page.
  */
-add_action( 'rct_after_featured_image', 'rct_review_link', 20 );
+add_action( 'rct_after_featured_image', 'rct_review_link', 30 );
+
 

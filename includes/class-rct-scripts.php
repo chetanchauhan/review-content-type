@@ -43,7 +43,7 @@ class RCT_Scripts {
 	 * @since  1.0.0
 	 */
 	public function enqueue_styles() {
-		wp_enqueue_style( 'review-content-type-frontend', RCT_URL . "assets/css/frontend{$this->suffix}.css", array(), RCT_VERSION, 'all' );
+		wp_enqueue_style( 'review-content-type-frontend', RCT_URL . "assets/css/frontend{$this->suffix}.css", array( 'dashicons' ), RCT_VERSION, 'all' );
 	}
 
 	/**
@@ -62,6 +62,7 @@ class RCT_Scripts {
 	 */
 	public function enqueue_admin_styles() {
 		wp_enqueue_style( 'review-content-type-admin', RCT_URL . "assets/css/admin{$this->suffix}.css", array(), RCT_VERSION, 'all' );
+		wp_enqueue_style( 'rct-jquery-ui-slider', RCT_URL . "assets/css/jquery-ui-slider{$this->suffix}.css", array(), RCT_VERSION, 'all' );
 	}
 
 	/**
@@ -70,7 +71,10 @@ class RCT_Scripts {
 	 * @since     1.0.0
 	 */
 	public function enqueue_admin_scripts() {
-		wp_enqueue_script( 'review-content-type-admin', RCT_URL . "assets/js/admin{$this->suffix}.js", array( 'jquery' ), RCT_VERSION, false );
+		wp_enqueue_script( 'review-content-type-admin', RCT_URL . "assets/js/admin{$this->suffix}.js", array(
+			'jquery',
+			'jquery-ui-slider',
+		), RCT_VERSION, false );
 	}
 
 }

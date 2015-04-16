@@ -55,3 +55,21 @@
 	display: block;
 	font-size: 2em;
 }
+
+.rct-review-rating {
+	margin: 0.7917em 0;
+	text-align: center;
+	cursor: default;
+}
+
+.rct-star-rating {
+	white-space: nowrap;
+}
+
+.rct-star-rating .dashicons {
+	width: inherit;
+	height: inherit;
+	color: #ff9d20;
+	font-size: 1em;
+	line-height: inherit;
+}

@@ -57,5 +57,20 @@
 			}
 		}).trigger('change');
 
+		$('.rct-rating-slider').each(function () {
+			var slider = $(this),
+				value = slider.siblings('input.rct-rating-value').val();
+
+			slider.slider({
+				min: slider.data('min'),
+				max: slider.data('max'),
+				step: slider.data('step'),
+				value: value,
+				range: 'min',
+				change: function (event, ui) {
+					$(event.target).siblings('input.rct-rating-value').val(ui.value);
+				}
+			});
+		});
 	});
 }(jQuery));

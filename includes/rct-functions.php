@@ -113,6 +113,63 @@ function rct_get_link_styles() {
 }
 
 /**
+ * Retrieves available rating types.
+ *
+ * @since  1.0.0
+ * @return array
+ */
+function rct_get_rating_types() {
+	$rating_types = array(
+		'star'    => __( 'Stars', 'review-content-type' ),
+		'point'   => __( 'Points', 'review-content-type' ),
+		'percent' => __( 'Percentage', 'review-content-type' ),
+	);
+
+	return apply_filters( 'rct_rating_types', $rating_types );
+}
+
+/**
+ * Retrieves the rating scale of the given rating type.
+ *
+ * @since   1.0.0
+ *
+ * @param   string $rating_type Rating type.
+ *
+ * @return  array
+ */
+function rct_get_rating_scale( $rating_type ) {
+	$scale = array(
+		'min'  => 0,
+		'max'  => 100,
+		'step' => 1,
+	);
+
+	switch ( $rating_type ) {
+		case 'star':
+			$scale['max']  = 5;
+			$scale['step'] = 0.5;
+			break;
+		case 'point':
+			$scale['max'] = 10;
+	}
+
+	// Override default scale with the customized scale for the current rating type, if available.
+	$_scale = review_content_type()->settings->get( 'rating_scale', 'rating' );
+	if ( isset( $_scale[ $rating_type ] ) && is_array( $_scale[ $rating_type ] ) ) {
+		$scale = array_merge( $scale, $_scale[ $rating_type ] );
+
+		// Sanitize the rating scale when coming from db.
+		$scale = array(
+			'min'  => absint( $scale['min'] ),
+			'max'  => absint( $scale['max'] ),
+			'step' => floatval( $scale['step'] ),
+		);
+	}
+
+	return apply_filters( 'rct_rating_scale', $scale, $rating_type );
+}
+
+/**
  * Retrieves all the available currencies.
  *
  * @since   1.0.0
@@ -301,6 +358,27 @@ function rct_get_currency_symbol( $currency ) {
 	}
 
 	return apply_filters( 'rct_currency_symbol', $currency_symbol, $currency );
+}
+
+/**
+ * Convert rating value on 0-100 scale to the given rating type
+ * scale, and vice versa.
+ *
+ * @since 1.0.0
+ *
+ * @param  mixed  $rating      Rating value on 0-100 scale.
+ * @param  string $rating_type The rating type to which rating value needs to be converted.
+ * @param  bool   $reverse     If true, perform the reverse i.e. retrieve rating value on 0-100 scale.
+ *
+ * @return float|int
+ */
+function rct_adjust_rating( $rating, $rating_type, $reverse = false ) {
+	$scale = rct_get_rating_scale( $rating_type );
+	if ( $reverse ) {
+		return $rating - $scale['min'] * ( 100 / ( $scale['max'] - $scale['min'] ) );
+	}
+
+	return $scale['min'] + $rating * ( ( $scale['max'] - $scale['min'] ) / 100 );
 }
 
 /**
