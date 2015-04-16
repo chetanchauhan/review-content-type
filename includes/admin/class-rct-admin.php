@@ -15,6 +15,7 @@ class RCT_Admin {
 	public function __construct() {
 		global $pagenow;
 
+		require_once( 'class-rct-admin-post-types.php' );
 		require_once( 'class-rct-admin-meta-boxes.php' );
 		if ( 'options-permalink.php' === $pagenow ) {
 			require_once( 'class-rct-admin-permalink-settings.php' );
