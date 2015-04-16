@@ -15,6 +15,9 @@ class RCT_Admin_Post_Types {
 	public function __construct() {
 		add_filter( 'enter_title_here', array( $this, 'enter_title_here' ), 10, 2 );
 		add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );
+
+		// Allow filtering of reviews by taxonomy on the Reviews list table.
+		add_action( 'restrict_manage_posts', array( $this, 'add_taxonomy_filters' ) );
 	}
 
 	/**
@@ -70,6 +73,41 @@ class RCT_Admin_Post_Types {
 		return $messages;
 	}
 
+	/**
+	 * Add taxonomy filters to the Reviews list page.
+	 *
+	 * @since   1.0.0
+	 */
+	public function add_taxonomy_filters() {
+		global $typenow;
+
+		if ( 'review' === $typenow ) {
+			$taxonomies = apply_filters( 'rct_filter_reviews_by_taxonomies', array( 'review_category', 'review_tag' ) );
+
+			foreach ( $taxonomies as $taxonomy ) {
+				// Retrieve the taxonomy object.
+				if ( ! $taxonomy = get_taxonomy( $taxonomy ) ) {
+					// Taxonomy doesn't exist.
+					continue;
+				}
+
+				// Retrieve all the term objects for the current taxonomy.
+				$terms = get_terms( $taxonomy->name );
+				// Get the current taxonomy term selected from the filter.
+				$selected = isset( $_GET[ $taxonomy->name ] ) ? $_GET[ $taxonomy->name ] : false;
+
+				// Output the taxonomy dropdown filter.
+				if ( ! empty( $terms ) ) {
+					echo '<select name="' . esc_attr( $taxonomy->name ) . '" id="' . esc_attr( $taxonomy->name ) . '" class="postform">';
+					echo '<option value="0">View All ' . esc_html( $taxonomy->labels->menu_name ) . '</option>';
+					foreach ( $terms as $term ) {
+						printf( '<option value="%s"%s>%s (%s)</option>', esc_attr( $term->slug ), selected( $term->slug, $selected, false ), esc_html( $term->name ), esc_html( $term->count ) );
+					}
+					echo '</select>';
+				}
+			}
+		}
+	}
 }
 
 new RCT_Admin_Post_Types();
