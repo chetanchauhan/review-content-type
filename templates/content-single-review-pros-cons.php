@@ -1,5 +1,3 @@
-<?php do_action( 'rct_before_pros_cons_wrap' ); ?>
-
 <div class="rct-review-pros-cons-wrap">
 	<?php do_action( 'rct_before_pros_cons' ); ?>
 
@@ -27,5 +25,3 @@
 
 	<?php do_action( 'rct_after_pros_cons' ); ?>
 </div>
-
-<?php do_action( 'rct_after_pros_cons_wrap' ); ?>
