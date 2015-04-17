@@ -374,11 +374,17 @@ function rct_get_currency_symbol( $currency ) {
  */
 function rct_adjust_rating( $rating, $rating_type, $reverse = false ) {
 	$scale = rct_get_rating_scale( $rating_type );
+
 	if ( $reverse ) {
-		return $rating - $scale['min'] * ( 100 / ( $scale['max'] - $scale['min'] ) );
+		return $rating * 100 / $scale['max'];
 	}
 
-	return $scale['min'] + $rating * ( ( $scale['max'] - $scale['min'] ) / 100 );
+	$rating = $rating * $scale['max'] / 100;
+	if ( $rating >= $scale['min'] ) {
+		return $rating;
+	}
+
+	return $scale['min'];
 }
 
 /**
