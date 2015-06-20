@@ -2,8 +2,8 @@
 Contributors: chetanchauhan
 Tags: review, reviews, ratings, rich snippets, schema, hreview, star rating, stars, affiliate, product review, wp review
 Requires at least: 3.8.0
-Tested up to: 4.1.1
-Stable tag: 1.0.0
+Tested up to: 4.2.2
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,5 +53,9 @@ If you like this plugin, then please don't forget to [leave a good rating and re
 6. Display settings screen.
 
 == Changelog ==
+= 1.0.1 - 2015-06-20 =
+* New: Show published reviews count in the 'At a Glance' dashboard widget.
+* Fix: Incorrect reviews updated messages when using bulk edit.
+
 = 1.0.0 - 2015-04-18 =
 * Initial release
