@@ -69,3 +69,8 @@ ul.rct-inline-list li {
 	display: inline-block;
 	width: 70%;
 }
+
+#dashboard_right_now a.review-count:before,
+#dashboard_right_now span.review-count:before {
+	content: "\f155";
+}

@@ -15,6 +15,7 @@ class RCT_Admin_Post_Types {
 	public function __construct() {
 		add_filter( 'enter_title_here', array( $this, 'enter_title_here' ), 10, 2 );
 		add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );
+		add_filter( 'dashboard_glance_items', array( $this, 'dashboard_glance_items' ), 5 );
 
 		// Allow filtering of reviews by taxonomy on the Reviews list table.
 		add_action( 'restrict_manage_posts', array( $this, 'add_taxonomy_filters' ) );
@@ -108,6 +109,32 @@ class RCT_Admin_Post_Types {
 			}
 		}
 	}
+
+	/**
+	 * Add reviews count to 'At a Glance' dashboard widget.
+	 *
+	 * @since   1.0.0
+	 *
+	 * @param array $items Existing array of extra 'At a Glance' widget items.
+	 *
+	 * @return array
+	 */
+	public function dashboard_glance_items( $items ) {
+		$num_posts = wp_count_posts( 'review' );
+		if ( $num_posts && $num_posts->publish ) {
+			$text = _n( '%s Review', '%s Reviews', $num_posts->publish, 'review-content-type' );
+			$text = sprintf( $text, number_format_i18n( $num_posts->publish ) );
+			if ( current_user_can( 'edit_reviews' ) ) {
+				$text = sprintf( '<a class="review-count" href="edit.php?post_type=review">%1$s</a>', $text );
+			} else {
+				$text = sprintf( '<span class="review-count">%1$s</span>', $text );
+			}
+			$items[] = $text;
+		}
+
+		return $items;
+	}
+
 }
 
 new RCT_Admin_Post_Types();
