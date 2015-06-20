@@ -15,6 +15,7 @@ class RCT_Admin_Post_Types {
 	public function __construct() {
 		add_filter( 'enter_title_here', array( $this, 'enter_title_here' ), 10, 2 );
 		add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );
+		add_filter( 'bulk_post_updated_messages', array( $this, 'bulk_post_updated_messages' ), 10, 2 );
 		add_filter( 'dashboard_glance_items', array( $this, 'dashboard_glance_items' ), 5 );
 
 		// Allow filtering of reviews by taxonomy on the Reviews list table.
@@ -72,6 +73,28 @@ class RCT_Admin_Post_Types {
 		);
 
 		return $messages;
+	}
+
+	/**
+	 * Modifies the bulk action updated messages for reviews.
+	 *
+	 * @since 2.3
+	 *
+	 * @param array $bulk_messages Post updated messages.
+	 * @param array $bulk_counts Post counts.
+	 *
+	 * @return array $bulk_messages Modified post updated messages
+	 */
+	public function bulk_post_updated_messages( $bulk_messages, $bulk_counts ) {
+		$bulk_messages['review'] = array(
+			'updated'   => _n( '%s review updated.', '%s reviews updated.', $bulk_counts['updated'], 'review-content-type' ),
+			'locked'    => _n( '%s review not updated, somebody is editing it.', '%s reviews not updated, somebody is editing them.', $bulk_counts['locked'], 'review-content-type' ),
+			'deleted'   => _n( '%s review permanently deleted.', '%s reviews permanently deleted.', $bulk_counts['deleted'], 'review-content-type' ),
+			'trashed'   => _n( '%s review moved to the Trash.', '%s reviews moved to the Trash.', $bulk_counts['trashed'], 'review-content-type' ),
+			'untrashed' => _n( '%s review restored from the Trash.', '%s reviews restored from the Trash.', $bulk_counts['untrashed'], 'review-content-type' ),
+		);
+
+		return $bulk_messages;
 	}
 
 	/**
