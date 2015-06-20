@@ -7,29 +7,37 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Create and manage reviews easily with this feature-rich, extendable and powerful WordPress plugin.
+Create and manage reviews easily with this feature-rich, extendable, powerful and free WordPress review plugin the right way.
 
 == Description ==
-Review Content Type is a feature-rich, extendable and powerful WordPress review plugin allowing you to create professional looking review websites with ease. Rather than cluttering existing post types with review related data, Review Content Type adds new review custom post type and taxonomies allowing you to manage them easily using the familiar WordPress UI.
+Review Content Type is a feature-rich, extendable and powerful **WordPress review plugin** allowing you to create professional looking review websites with ease. Using this review plugin for WordPress, you can create in-depth reviews having pros, cons, summary, rating, featured image, pricing details, and affiliate links.
 
-Whether you are a blogger or affiliate marketer reviewing products, services, or anything else, this plugin has got you covered.
+Whether you're an affiliate marketer or a blogger writing reviews of products, services or anything else, this plugin has you covered.
+
+= How this WordPress review plugin is different? =
+Unlike other WordPress review plugins that add review functionality to existing post types, this plugin adds new `review` custom post type along with related custom taxonomies instead. Thus, avoiding cluttering of existing post types with review related data. And, most importantly allowing better management and organization of reviews for an overall improved user experience.
 
 = Features =
-* Custom capabilities for creating and managing reviews.
-* Easily customize review permalinks.
 * Add unlimited pros and cons to reviews along with a brief summary.
 * Call to action buttons ideal for affiliate links.
 * Link featured image to the media file, review page, or any custom URL if you want.
 * Choose from one of the inbuilt stars, point, or percentage rating types or create a new one.
-* Customize rating scale for all rating types as per your likings. For example, you can switch from default 5 star half rating system to 10 star full rating system with few changes to the rating scale of stars rating type.
+* Customize rating scale of all available rating types as per your likings. For example, you can switch from the default 5-star half rating system to 10-star full rating system with few changes to the rating scale of stars rating type.
 * Support Schema.org rich snippets.
+* Custom capabilities for creating and managing reviews.
+* Easily customize review permalinks.
 * Compatible with any WordPress theme.
 * Responsive and mobile friendly.
-* Developer friendly with plenty of actions and filters and flexible templating system.
+* Developer friendly with plenty of actions and filters and a flexible templating system.
 
-= Important Links =
-* [Documentation →](https://github.com/chetanchauhan/review-content-type/wiki/)
-* [Github →](https://github.com/chetanchauhan/review-content-type/)
+= Documentation & Support =
+Use WordPress.org support forum for getting any help on using this plugin. However, please read the documentation available [here](https://github.com/chetanchauhan/review-content-type/wiki/) thoroughly before posting on the [support forum](https://wordpress.org/support/plugin/review-content-type/).
+
+= Contributing =
+Developers can contribute by heading over to [Review Content Type GitHub repository](https://github.com/chetanchauhan/review-content-type/).
+
+= Feedback =
+If you like this plugin, then please don't forget to [leave a good rating and review](https://wordpress.org/support/view/plugin-reviews/review-content-type/). Any constructive feedback including feature requests that can make this WordPress review plugin better is always welcome!
 
 == Installation ==
 1. Upload `review-content-type` to the `/wp-content/plugins/` directory
@@ -45,5 +53,5 @@ Whether you are a blogger or affiliate marketer reviewing products, services, or
 6. Display settings screen.
 
 == Changelog ==
-= 1.0.0 =
+= 1.0.0 - 2015-04-18 =
 * Initial release

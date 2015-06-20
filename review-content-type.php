@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Review Content Type
  * Plugin URI:        https://github.com/chetanchauhan/review-content-type/
- * Description:       Create and manage reviews easily with this feature-rich, extendable and powerful WordPress plugin.
+ * Description:       Create and manage reviews easily with this feature-rich, extendable, powerful and free WordPress review plugin the right way.
  * Version:           1.0.0
  * Author:            Chetan Chauhan
  * Author URI:        https://github.com/chetanchauhan/
