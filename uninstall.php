@@ -16,4 +16,6 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
-// @TODO: Define uninstall functionality here
+// Delete options.
+delete_option( 'rct_settings' );
+delete_option( 'rct_version' );
