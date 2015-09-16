@@ -27,49 +27,52 @@ class RCT_Activate {
 	}
 
 	/**
-	 * Adds required capabilities for managing reviews to administrator role.
+	 * Assign default user roles the capabilities for managing reviews.
 	 *
 	 * @since     1.0.0
 	 */
 	public static function add_caps() {
-		global $wp_roles;
+		$capabilities = array(
+			'edit_reviews',
+			'edit_others_reviews',
+			'publish_reviews',
+			'read_private_reviews',
+			'delete_reviews',
+			'delete_private_reviews',
+			'delete_published_reviews',
+			'delete_others_reviews',
+			'edit_private_reviews',
+			'edit_published_reviews',
+			'manage_review_terms',
+			'edit_review_terms',
+			'delete_review_terms',
+			'assign_review_terms',
+		);
 
-		if ( ! class_exists( 'WP_Roles' ) ) {
-			return;
-		}
-		if ( ! isset( $wp_roles ) ) {
-			$wp_roles = new WP_Roles();
-		}
-
-		if ( is_object( $wp_roles ) ) {
-			// Add the main post type capabilities
-			$capability_type = 'review';
-			$capabilities    = array(
-				// Post type
-				"edit_{$capability_type}",
-				"delete_{$capability_type}",
-				"read_{$capability_type}",
-				"edit_{$capability_type}s",
-				"edit_others_{$capability_type}s",
-				"publish_{$capability_type}s",
-				"read_private_{$capability_type}s",
-				"delete_{$capability_type}s",
-				"delete_private_{$capability_type}s",
-				"delete_published_{$capability_type}s",
-				"delete_others_{$capability_type}s",
-				"edit_private_{$capability_type}s",
-				"edit_published_{$capability_type}s",
-				// Terms
-				"manage_{$capability_type}_terms",
-				"edit_{$capability_type}_terms",
-				"assign_{$capability_type}_terms",
-				"delete_{$capability_type}_terms",
-			);
-
-			foreach ( $capabilities as $cap ) {
-				$wp_roles->add_cap( 'administrator', $cap );
+		foreach ( array( 'administrator', 'editor' ) as $role ) {
+			$role = get_role( $role );
+			if ( isset( $role ) ) {
+				foreach ( $capabilities as $cap ) {
+					$role->add_cap( $cap );
+				}
 			}
 		}
-	}
 
+		$role = get_role( 'author' );
+		if ( isset( $role ) ) {
+			$role->add_cap( 'edit_reviews' );
+			$role->add_cap( 'publish_reviews' );
+			$role->add_cap( 'delete_reviews' );
+			$role->add_cap( 'delete_published_reviews' );
+			$role->add_cap( 'edit_published_reviews' );
+			$role->add_cap( 'assign_review_terms' );
+		}
+
+		$role = get_role( 'contributor' );
+		if ( isset( $role ) ) {
+			$role->add_cap( 'edit_reviews' );
+			$role->add_cap( 'delete_reviews' );
+			$role->add_cap( 'assign_review_terms' );
+		}
+	}
 }
