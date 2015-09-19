@@ -2,8 +2,8 @@
 Contributors: chetanchauhan
 Tags: review, reviews, ratings, rich snippets, schema, hreview, star rating, stars, affiliate, product review, wp review
 Requires at least: 3.8.0
-Tested up to: 4.2.2
-Stable tag: 1.0.1
+Tested up to: 4.3.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,6 +53,11 @@ If you like this plugin, then please don't forget to [leave a good rating and re
 6. Display settings screen.
 
 == Changelog ==
+= 1.0.2 - 2015-09-19 =
+* Tweak: Added appropriate capabilities for managing reviews to the editor, author, and subscriber user roles too. Earlier only administrator user role was given the permissions to manage reviews.
+* Tweak: Remove all custom capabilities and saved settings when the plugin is deactivated and deleted from WP dashboard respectively.
+* Fix: Incorrect rating is saved if rating scale is customized while the review is being created/edited by the user.
+
 = 1.0.1 - 2015-06-20 =
 * New: Show published reviews count in the 'At a Glance' dashboard widget.
 * Fix: Incorrect reviews updated messages when using bulk edit.
