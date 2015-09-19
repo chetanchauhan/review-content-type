@@ -23,6 +23,20 @@ class RCT_Activate {
 		// Add all the required capabilities.
 		self::add_caps();
 
+		$old_version = get_option( 'rct_version' );
+
+		// Run updates only if previous version exists.
+		if ( ! empty( $old_version ) ) {
+			if ( version_compare( $old_version, '1.0.2', '<' ) ) {
+				// Remove meta capabilities from administrator user role.
+				if ( $role = get_role( 'administrator' ) ) {
+					$role->remove_cap( 'edit_review' );
+					$role->remove_cap( 'delete_review' );
+					$role->remove_cap( 'read_review' );
+				}
+			}
+		}
+
 		update_option( 'rct_version', RCT_VERSION );
 	}
 
