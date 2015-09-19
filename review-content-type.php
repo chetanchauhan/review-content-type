@@ -154,6 +154,11 @@ final class Review_Content_Type {
 	public function init() {
 		self::$instance->settings = new RCT_Settings();
 
+		// Upgrade plugin to latest version.
+		if ( get_option( 'rct_version' ) !== RCT_VERSION ) {
+			RCT_Activate::activate();
+		}
+
 		do_action( 'rct_init', self::$instance );
 	}
 
@@ -184,8 +189,8 @@ final class Review_Content_Type {
 	 *
 	 * @since   1.0.0
 	 *
-	 * @param string  $permalink The post's permalink.
-	 * @param WP_Post $post      The post in question.
+	 * @param string $permalink The post's permalink.
+	 * @param WP_Post $post The post in question.
 	 *
 	 * @return string
 	 */
