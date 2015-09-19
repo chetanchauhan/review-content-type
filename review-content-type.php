@@ -96,7 +96,7 @@ final class Review_Content_Type {
 	 * @since  1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'review-content-type' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, esc_html( __( 'Cheatin&#8217; huh?', 'review-content-type' ) ), '1.0.0' );
 	}
 
 	/**
@@ -105,7 +105,7 @@ final class Review_Content_Type {
 	 * @since  1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'review-content-type' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, esc_html( __( 'Cheatin&#8217; huh?', 'review-content-type' ) ), '1.0.0' );
 	}
 
 	/**
@@ -189,7 +189,7 @@ final class Review_Content_Type {
 	 *
 	 * @since   1.0.0
 	 *
-	 * @param string $permalink The post's permalink.
+	 * @param string  $permalink The post's permalink.
 	 * @param WP_Post $post The post in question.
 	 *
 	 * @return string
@@ -242,7 +242,6 @@ final class Review_Content_Type {
 
 		return apply_filters( 'rct_review_post_type_link', $permalink, $post );
 	}
-
 }
 
 /**
