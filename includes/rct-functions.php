@@ -9,9 +9,9 @@ if ( ! defined( 'WPINC' ) ) {
  *
  * @since 1.0.0
  *
- * @param int          $post_id    Optional. Post ID.
+ * @param int          $post_id Optional. Post ID.
  * @param string       $image_size Optional. Image size. Defaults to 'rct_featured_image'.
- * @param string|array $attr       Optional. Query string or array of attributes.
+ * @param string|array $attr Optional. Query string or array of attributes.
  *
  * @return  string
  */
@@ -30,7 +30,7 @@ function rct_get_featured_image( $post_id = null, $image_size = 'rct_featured_im
  * @since   1.0.0
  *
  * @param string       $image_size Image size. Defaults to 'rct_featured_image'.
- * @param string|array $attr       Attributes for the image markup. Default empty string.
+ * @param string|array $attr Attributes for the image markup. Default empty string.
  *
  * @return string
  */
@@ -106,7 +106,7 @@ function rct_get_placeholder_image_url() {
 function rct_get_link_styles() {
 	$styles = array(
 		'button' => __( 'Button', 'review-content-type' ),
-		'plain'  => __( 'Plain Text', 'review-content-type' )
+		'plain'  => __( 'Plain Text', 'review-content-type' ),
 	);
 
 	return apply_filters( 'rct_link_styles', $styles );
@@ -366,14 +366,24 @@ function rct_get_currency_symbol( $currency ) {
  *
  * @since 1.0.0
  *
- * @param  mixed  $rating      Rating value on 0-100 scale.
- * @param  string $rating_type The rating type to which rating value needs to be converted.
- * @param  bool   $reverse     If true, perform the reverse i.e. retrieve rating value on 0-100 scale.
+ * @param  mixed        $rating Rating value on 0-100 scale.
+ * @param  string|array $rating_type_or_scale The rating type or the rating scale to which rating value needs to be converted.
+ * @param  bool         $reverse If true, retrieve rating value on 0-100 scale when rating value is on the supplied scale.
  *
  * @return float|int
  */
-function rct_adjust_rating( $rating, $rating_type, $reverse = false ) {
-	$scale = rct_get_rating_scale( $rating_type );
+function rct_adjust_rating( $rating, $rating_type_or_scale, $reverse = false ) {
+	if ( is_array( $rating_type_or_scale ) ) {
+		// Sanitize the rating scale.
+		$scale = array_merge( array( 'min' => 0, 'max' => 100, 'step' => 1 ), $rating_type_or_scale );
+		$scale = array(
+			'min'  => absint( $scale['min'] ),
+			'max'  => absint( $scale['max'] ),
+			'step' => floatval( $scale['step'] ),
+		);
+	} else {
+		$scale = rct_get_rating_scale( $rating_type_or_scale );
+	}
 
 	if ( $reverse ) {
 		return $rating * 100 / $scale['max'];
@@ -452,7 +462,7 @@ add_filter( 'rct_sanitize_review_data_max_price_field', 'rct_sanitize_price_amou
  *
  * @since   1.0.0
  *
- * @param   mixed $var
+ * @param   mixed $var Variable to be checked.
  *
  * @return  bool
  */

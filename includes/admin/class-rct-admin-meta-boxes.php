@@ -296,6 +296,12 @@ class RCT_Admin_Meta_Boxes {
 					     data-step="<?php echo esc_attr( $rating_scale['step'] );?>"></div>
 					<input type="hidden" name="<?php echo esc_attr( $html_name . '[type]' ); ?>"
 					       value="<?php echo esc_attr( $rating_type );?>">
+					<input type="hidden" name="<?php echo esc_attr( $html_name . '[scale][min]' ); ?>"
+					       value="<?php echo esc_attr( $rating_scale['min'] );?>">
+					<input type="hidden" name="<?php echo esc_attr( $html_name . '[scale][max]' ); ?>"
+					       value="<?php echo esc_attr( $rating_scale['max'] );?>">
+					<input type="hidden" name="<?php echo esc_attr( $html_name . '[scale][step]' ); ?>"
+					       value="<?php echo esc_attr( $rating_scale['step'] );?>">
 					<?php
 					break;
 				default:
@@ -363,7 +369,7 @@ class RCT_Admin_Meta_Boxes {
 					);
 					break;
 				case 'rating':
-					$value = rct_adjust_rating( $value['value'], $value['type'], true );
+					$value = rct_adjust_rating( $value['value'], $value['scale'], true );
 					break;
 			}
 
