@@ -494,6 +494,8 @@ function rct_rating_html( $rating, $rating_type ) {
 			$html .= $rating . '/' . $scale['max'];
 	}
 
+	$html .= '</span>';
+
 	echo apply_filters( 'rct_rating_html', $html, $rating, $rating_type );
 }
 
