@@ -1,9 +1,9 @@
 === Review Content Type ===
 Contributors: chetanchauhan
 Tags: review, reviews, ratings, rich snippets, schema, hreview, star rating, stars, affiliate, product review, wp review
-Requires at least: 3.8.0
-Tested up to: 4.3.1
-Stable tag: 1.0.2
+Requires at least: 3.8
+Tested up to: 4.5
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,6 +53,9 @@ If you like this plugin, then please don't forget to [leave a good rating and re
 6. Display settings screen.
 
 == Changelog ==
+= 1.0.3 - 2016-04-13 =
+* Fix: Span element not closed while displaying rating using `rct_rating_html()`.
+
 = 1.0.2 - 2015-09-19 =
 * Tweak: Added appropriate capabilities for managing reviews to the editor, author, and subscriber user roles too. Earlier only administrator user role was given the permissions to manage reviews.
 * Tweak: Remove all custom capabilities and saved settings when the plugin is deactivated and deleted from WP dashboard respectively.
