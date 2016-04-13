@@ -319,7 +319,7 @@ class RCT_Admin_Meta_Boxes {
 	/**
 	 * Save review data fields when the `save_post` action is called.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @param int $post_id Review ID
 	 */

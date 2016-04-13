@@ -78,7 +78,7 @@ class RCT_Admin_Post_Types {
 	/**
 	 * Modifies the bulk action updated messages for reviews.
 	 *
-	 * @since 2.3
+	 * @since 1.0.1
 	 *
 	 * @param array $bulk_messages Post updated messages.
 	 * @param array $bulk_counts Post counts.

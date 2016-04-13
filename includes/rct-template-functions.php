@@ -122,7 +122,7 @@ function rct_get_template_paths() {
 /**
  * Append extra content when displaying single review.
  *
- * @since 1.0.8
+ * @since 1.0.0
  * @global       $post
  *
  * @param string $content Content of the current review.
